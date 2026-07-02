@@ -19,7 +19,7 @@
             
 
             <geom type="cylinder" size="0.06 0.001" mass="0.8" quat="0 0 -0.7071 0.7071"/>
-            <camera name="front_cam" pos="0 0 0.03" fovy="80" zaxis="0 0 -1" />
+            <camera name="front_cam" pos="0.4 0 0.03" fovy="80" zaxis="0 0 -1" />
 
             <!-- ======================================================================= -->
             <!-- STABLE HOUSINGS: These hold the cameras and lights so they do NOT rotate -->

@@ -66,10 +66,10 @@ class TactileGymEnv(gym.Env):
         img = img.astype("float32") / 255.0
         self.renderer.update_scene(self.data, camera="sensor_cam_left")
         Limg = self.renderer.render()
-        Limg = img.astype("float32") / 255.0
+        Limg = Limg.astype("float32") / 255.0
         self.renderer.update_scene(self.data, camera="sensor_cam_right")
         Rimg = self.renderer.render()
-        Rimg = img.astype("float32") / 255.0
+        Rimg = Rimg.astype("float32") / 255.0
         obs = {
         "state": None,
         "sensor_cam_left": Limg,
