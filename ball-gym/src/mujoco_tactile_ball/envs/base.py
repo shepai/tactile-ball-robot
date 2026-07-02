@@ -26,30 +26,21 @@ class TactileGymEnv(gym.Env):
         self.observation_space = spaces.Box(
             low=-np.inf, high=np.inf, shape=(obs_dim,), dtype=np.float32
         )
-        self.renderer = renderer.Renderer(self.model,height=128, width=128)
+        self.renderer = renderer.Renderer(self.model,height=480, width=640)
         self.step_count = 0
         self.max_steps = 200
-    def control_robot_speed(self,target_left_w, target_right_w, max_allowed_speed=10.0):
-        current_left_w = self.data.sensor('left_vel_sensor').data[0]
-        current_right_w = self.data.sensor('right_vel_sensor').data[0]
-    
+    def control_robot_speed(self, target_left_w, target_right_w, max_allowed_speed=10.0):
+        # 1. Enforce safety speed ceiling
         max_target = max(abs(target_left_w), abs(target_right_w))
         if max_target > max_allowed_speed:
             scale_factor = max_allowed_speed / max_target
             target_left_w *= scale_factor
             target_right_w *= scale_factor
 
-        Kp = 0.5  # Proportional gain
-        Kd = 0.05 # Derivative gain (damping)
-    
-        error_left = target_left_w - current_left_w
-        error_right = target_right_w - current_right_w
+        # 2. Write targets directly to MuJoCo's implicit velocity servos
+        self.data.actuator('left_motor').ctrl[0] = target_left_w
+        self.data.actuator('right_motor').ctrl[0] = target_right_w
         
-        torque_left = Kp * error_left - Kd * current_left_w
-        torque_right = Kp * error_right - Kd * current_right_w
-     
-        self.data.actuator('left_motor').ctrl[0] = torque_left
-        self.data.actuator('right_motor').ctrl[0] = torque_right
     def reset(self, seed=None, options=None):
         super().reset(seed=seed)
         mj_resetData(self.model, self.data)

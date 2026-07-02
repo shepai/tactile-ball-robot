@@ -12,7 +12,7 @@
     <worldbody>
         <geom name="floor" type="plane" size="0 0 1" pos="0 0 0" material="grid" condim="3"/>
         
-        <camera name="third person" mode="trackcom" target="robot" pos="0.5 0 0.8" fovy="80" euler="0 40 90"/>
+        <camera name="third person" mode="trackcom" target="robot" pos="0.5 0 0.8" fovy="60" euler="0 40 90"/>
         <body name="robot" pos="0 0 0.15">
         <!-- <camera name="third person" mode="track" target="robot" pos="0 -0.5 0.8" fovy="80" euler="40 0 0"/> -->
             <freejoint/>
