@@ -1,6 +1,6 @@
 <mujoco model="dual_tactile_wheel">
 
-    <option integrator="implicit" timestep="0.001"/>
+    <option integrator="implicit" timestep="0.01"/>
     <option iterations="50"/>
     <asset>
         <include file="left_wheel/asset.xml"/>
@@ -17,10 +17,9 @@
         <!-- <camera name="third person" mode="track" target="robot" pos="0 -0.5 0.8" fovy="80" euler="40 0 0"/> -->
             <freejoint/>
             
-            <body name="centre">
-                <geom type="cylinder" size="0.07 0.001" mass="0.8" quat="0 0 -0.7071 0.7071"/>
-                <camera name="front_cam" pos="0 0 0.03" fovy="80" zaxis="0 0 -1" />
-            </body>
+
+            <geom type="cylinder" size="0.06 0.001" mass="0.8" quat="0 0 -0.7071 0.7071"/>
+            <camera name="front_cam" pos="0 0 0.03" fovy="80" zaxis="0 0 -1" />
 
             <!-- ======================================================================= -->
             <!-- STABLE HOUSINGS: These hold the cameras and lights so they do NOT rotate -->
@@ -45,7 +44,7 @@
             </body>
 
             <body name="right_wheel" pos="0 0.005 0" quat="0 0 0.7071 0.7071">
-                <joint name="right_joint" type="hinge" axis="0 0 1"/>
+                <joint name="right_joint" type="hinge" axis="0 0 1" />
                 <inertial pos="0 0 0" mass="0.5" diaginertia="0.001 0.001 0.001"/>
                 <include file="right_wheel/worldbody.xml"/>
             </body>
@@ -61,11 +60,16 @@
     <equality>
         <include file="left_wheel/equality.xml"/>
         <include file="right_wheel/equality.xml"/>
+        
     </equality>
     
     <actuator>
-        <motor name="left_motor" joint="left_joint" gear="2"/>
-        <motor name="right_motor" joint="right_joint" gear="2"/>
+        <motor name="left_motor" joint="left_joint" gear="3"/>
+        <motor name="right_motor" joint="right_joint" gear="3"/>
     </actuator>
 
+      <deformable>
+        <include file="left_wheel/deformable.xml"/>
+        <include file="right_wheel/deformable.xml"/>
+        </deformable>
 </mujoco>
