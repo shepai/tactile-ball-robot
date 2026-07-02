@@ -47,33 +47,6 @@
   <joint joint1="j_c15_x_rightwheel" polycoef="0 1 0 0 0" />
   <joint joint1="j_c15_y_rightwheel" polycoef="0 1 0 0 0" />
   <joint joint1="j_c15_z_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c16_x_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c16_y_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c16_z_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c17_x_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c17_y_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c17_z_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c18_x_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c18_y_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c18_z_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c19_x_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c19_y_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c19_z_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c20_x_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c20_y_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c20_z_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c21_x_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c21_y_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c21_z_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c22_x_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c22_y_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c22_z_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c23_x_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c23_y_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c23_z_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c24_x_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c24_y_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c24_z_rightwheel" polycoef="0 1 0 0 0" />
 </equality>
 
     

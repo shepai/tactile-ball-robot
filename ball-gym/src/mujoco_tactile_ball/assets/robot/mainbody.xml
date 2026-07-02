@@ -5,73 +5,67 @@
     <asset>
         <include file="left_wheel/asset.xml"/>
         <include file="right_wheel/asset.xml"/>
-            <texture name="checker" type="2d" builtin="checker"
-             rgb1="0.2 0.3 0.8"  
-             rgb2="0.9 0.9 0.9"
-             width="300" height="300"/>
-            <material name="checker_mat" texture="checker"
-              texrepeat="5 5" reflectance="0.1"/>
+        <texture type="2d" name="groundplane" builtin="checker" rgb1=".2 .3 .4" rgb2=".1 .2 .3" width="512" height="512"/>
+        <material name="grid" texture="groundplane" reflectance=".2" texrepeat="5 5"/>
     </asset>
 
     <worldbody>
-
-            <geom name="floor"
-          type="plane"
-          size="5 5 0.1"
-          material="checker_mat"/>
-
+        <geom name="floor" type="plane" size="0 0 1" pos="0 0 0" material="grid" condim="3"/>
+        
+        <camera name="third person" mode="trackcom" target="robot" pos="0.5 0 0.8" fovy="80" euler="0 40 90"/>
         <body name="robot" pos="0 0 0.15">
+        <!-- <camera name="third person" mode="track" target="robot" pos="0 -0.5 0.8" fovy="80" euler="40 0 0"/> -->
             <freejoint/>
-            <geom type="cylinder" size="0.07 0.001"
-                mass="0.05" quat="0 0 -0.7071 0.7071"/>
             
-            <body name="left_wheel" pos="0 -0.01 0" quat="0 0 -0.7071 0.7071">
-
-                <joint name="left_joint"
-                    type="hinge"
-                    axis="0 0 1"/>
-                <inertial pos="0 0 0"
-                    mass="0.2"
-                    diaginertia="0.001 0.001 0.001"/>
-                <include file="left_wheel/worldbody.xml"/>
-
+            <body name="centre">
+                <geom type="cylinder" size="0.07 0.001" mass="0.8" quat="0 0 -0.7071 0.7071"/>
+                <camera name="front_cam" pos="0 0 0.03" fovy="80" zaxis="0 0 -1" />
             </body>
 
-            <body name="right_wheel" pos="0 0.01 0" quat="0 0 0.7071 0.7071">
+            <!-- ======================================================================= -->
+            <!-- STABLE HOUSINGS: These hold the cameras and lights so they do NOT rotate -->
+            <!-- ======================================================================= -->
+            <body name="left_sensor_housing" pos="0 -0.005 0" quat="0 0 -0.7071 0.7071">
+                <camera name="sensor_cam_left" pos="0 0 -0.002" fovy="120" zaxis="0 0 -1" />
+                <light name="sensor_light_left" pos="0 0 -0.1" dir="0 0 -1" diffuse="0.8 0.8 0.8" specular="0.2 0.2 0.2" directional="true" />
+            </body>
 
-                <joint name="right_joint"
-                    type="hinge"
-                    axis="0 0 1"/>
-                <inertial pos="0 0 0"
-                    mass="0.2"
-                    diaginertia="0.001 0.001 0.001"/>
+            <body name="right_sensor_housing" pos="0 0.005 0" quat="0 0 0.7071 0.7071">
+                <camera name="sensor_cam_right" pos="0 0 -0.002" fovy="120" zaxis="0 0 -1" />
+                <light name="sensor_light_right" pos="0 0 -0.1" dir="0 0 -1" diffuse="0.8 0.8 0.8" specular="0.2 0.2 0.2" directional="true" />
+            </body>
+
+            <!-- ======================================================================= -->
+            <!-- ROTATING WHEELS: These bodies handle ONLY the rotation and the mesh     -->
+            <!-- ======================================================================= -->
+            <body name="left_wheel" pos="0 -0.005 0" quat="0 0 -0.7071 0.7071">
+                <joint name="left_joint" type="hinge" axis="0 0 1"/>
+                <inertial pos="0 0 0" mass="0.5" diaginertia="0.001 0.001 0.001"/>
+                <include file="left_wheel/worldbody.xml"/>
+            </body>
+
+            <body name="right_wheel" pos="0 0.005 0" quat="0 0 0.7071 0.7071">
+                <joint name="right_joint" type="hinge" axis="0 0 1"/>
+                <inertial pos="0 0 0" mass="0.5" diaginertia="0.001 0.001 0.001"/>
                 <include file="right_wheel/worldbody.xml"/>
-
             </body>
 
         </body>
-
     </worldbody>
+
     <tendon>
         <include file="left_wheel/tendon.xml"/>
         <include file="right_wheel/tendon.xml"/>
     </tendon>
+    
     <equality>
-            <include file="left_wheel/equality.xml"/>
-            <include file="right_wheel/equality.xml"/>
+        <include file="left_wheel/equality.xml"/>
+        <include file="right_wheel/equality.xml"/>
     </equality>
+    
     <actuator>
-       <motor name="left_motor"
-           joint="left_joint"
-           gear="3"/>
-
-        <motor name="right_motor"
-            joint="right_joint"
-            gear="3"/>
+        <motor name="left_motor" joint="left_joint" gear="2"/>
+        <motor name="right_motor" joint="right_joint" gear="2"/>
     </actuator>
-     <deformable>
-            <include file="left_wheel/deformable.xml"/>
-            <include file="right_wheel/deformable.xml"/>
-    </deformable> 
 
 </mujoco>

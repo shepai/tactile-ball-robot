@@ -70,6 +70,7 @@ def generate_xml(name,points, num,stiff=300,damp=20):
                 size="0.01 0.01"
                 mass="0.05"/>
         </body>
+        
 
     """
     layers = []
@@ -225,9 +226,10 @@ def seperate(folder):
                 xml_declaration=False,
             )
 def generate_body():
-    points,layers=generate_dome()
-    left_xml=generate_xml("leftwheel",points,layers,stiff=100,damp=50)
-    right_xml=generate_xml("rightwheel",points,layers,stiff=100,damp=50)
+    points,layers=generate_dome(R=1.0, n_layers=15, n_total=150,
+                  tip_layer_density=2.0, min_pts=6)
+    left_xml=generate_xml("leftwheel",points,layers,stiff=150,damp=60)
+    right_xml=generate_xml("rightwheel",points,layers,stiff=150,damp=60)
     with open("/home/dexter/Documents/GitHub/tactile-ball-robot/ball-gym/src/mujoco_tactile_ball/assets/robot/left_wheel/generated.xml","w") as file:
         file.write(left_xml)
     with open("/home/dexter/Documents/GitHub/tactile-ball-robot/ball-gym/src/mujoco_tactile_ball/assets/robot/right_wheel/generated.xml","w") as file:
