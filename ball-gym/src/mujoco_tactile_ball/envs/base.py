@@ -70,12 +70,20 @@ class TactileGymEnv(gym.Env):
         return obs, reward, terminated, truncated, {}
 
     def _get_obs(self):
-        self.renderer.update_scene(self.data, camera="sensor_cam")
+        self.renderer.update_scene(self.data, camera="front_cam")
         img = self.renderer.render()
         img = img.astype("float32") / 255.0
+        self.renderer.update_scene(self.data, camera="sensor_cam_left")
+        Limg = self.renderer.render()
+        Limg = img.astype("float32") / 255.0
+        self.renderer.update_scene(self.data, camera="sensor_cam_right")
+        Rimg = self.renderer.render()
+        Rimg = img.astype("float32") / 255.0
         obs = {
         "state": None,
-        "image": img
+        "left image": Limg,
+        "right image": Rimg,
+        "image": img,
     }
         return obs
 
