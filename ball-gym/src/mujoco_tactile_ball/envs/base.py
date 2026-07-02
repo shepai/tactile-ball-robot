@@ -58,7 +58,7 @@ class TactileGymEnv(gym.Env):
 
     def step(self, action):
         mj_forward(self.model, self.data)
-        self.control_robot_speed(action)
+        self.control_robot_speed(*action)
         mj_step(self.model, self.data)
         self.step_count += 1
 
@@ -81,14 +81,14 @@ class TactileGymEnv(gym.Env):
         Rimg = img.astype("float32") / 255.0
         obs = {
         "state": None,
-        "left image": Limg,
-        "right image": Rimg,
-        "image": img,
+        "sensor_cam_left": Limg,
+        "sensor_cam_right": Rimg,
+        "front_cam": img,
     }
         return obs
 
     def _reward(self):
-        raise NotImplementedError
+        return np.random.randint(0,10)
 
     def _done(self):
         return False

@@ -82,7 +82,7 @@ def main():
         while viewer.is_running():
             
             # 1. Translate current keyboard flags into velocity values
-            target_velocities = get_velocities_from_keys(base_speed=8.0, turn_speed=4.0)
+            target_velocities = get_velocities_from_keys(base_speed=0.3, turn_speed=0.6)
 
             # 2. Pass the [left_velocity, right_velocity] directly to your step function
             obs, reward, terminated, truncated, info = env.step(target_velocities)
@@ -93,11 +93,6 @@ def main():
             # reset if episode ends
             if terminated:
                 obs, info = env.reset()
-                
-            img = obs["image"]
-            cv2.imshow("sensor_cam", img)
-            cv2.waitKey(1)
-            
             # small sleep so it doesn't max CPU
             time.sleep(env.unwrapped.model.opt.timestep)
 

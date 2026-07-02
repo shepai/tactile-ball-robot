@@ -42,10 +42,7 @@
                 <inertial pos="0 0 0" mass="0.5" diaginertia="0.001 0.001 0.001"/>
                 <include file="left_wheel/worldbody.xml"/>
             </body>
-            <!-- <sensor>
-                <jointvel name="left_vel_sensor" joint="left_joint"/>
-                <jointvel name="right_vel_sensor" joint="right_joint"/>
-            </sensor> -->
+            
             <body name="right_wheel" pos="0 0.005 0" quat="0 0 0.7071 0.7071">
                 <joint name="right_joint" type="hinge" axis="0 0 1" />
                 <inertial pos="0 0 0" mass="0.5" diaginertia="0.001 0.001 0.001"/>
@@ -65,7 +62,10 @@
         <include file="right_wheel/equality.xml"/>
         
     </equality>
-    
+    <sensor>
+                <jointvel name="left_vel_sensor" joint="left_joint"/>
+                <jointvel name="right_vel_sensor" joint="right_joint"/>
+    </sensor>
     <actuator>
         <motor name="left_motor" joint="left_joint" gear="3"/>
         <motor name="right_motor" joint="right_joint" gear="3"/>
