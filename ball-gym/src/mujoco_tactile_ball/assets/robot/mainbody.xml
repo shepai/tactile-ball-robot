@@ -21,16 +21,17 @@
             pos="0 0 0"
             mass="0.8"
             diaginertia="0.01 0.01 0.02"/>
-            <geom type="cylinder" size="0.103 0.0025" mass="0.8" quat="0 0 -0.7071 0.7071"/>
+            <geom type="cylinder" size="0.1 0.015" mass="0.8" quat="0 0 -0.7071 0.7071" rgba="0.05 0.05 0.05 1" group="1"/>
             <body name="counterweight">
                 <inertial
                     pos="0 0 -0.04"
-                    mass="1.8"
+                    mass="2.0"
                     diaginertia="0.0005 0.0005 0.0005"/>
                 <geom contype="0" conaffinity="0"
                     type="box"
                     pos="0 0 -0.04"
-                    size="0.02 0.007 0.02"
+                    rgba="0.3 0 0 1" group="1"
+                    size="0.02 0.017 0.02"
                     />
             </body>
             <body name="cam_rig" pos="0.102 0 0.03" euler="90 -90 0">
@@ -53,12 +54,12 @@
             <!-- ======================================================================= -->
             <!-- STABLE HOUSINGS: These hold the cameras and lights so they do NOT rotate -->
             <!-- ======================================================================= -->
-            <body name="left_sensor_housing" pos="0 -0.005 0" quat="0 0 -0.7071 0.7071">
+            <body name="left_sensor_housing" pos="0 -0.018 0" quat="0 0 -0.7071 0.7071">
                 <camera name="sensor_cam_left" pos="0 0 -0.002" fovy="120" zaxis="0 0 -1" />
                 <light name="sensor_light_left" pos="0 0 -0.05" dir="0 0 -1" diffuse="0.8 0.8 0.8" specular="0.2 0.2 0.2" directional="true" />
             </body>
 
-            <body name="right_sensor_housing" pos="0 0.005 0" quat="0 0 0.7071 0.7071">
+            <body name="right_sensor_housing" pos="0 0.018 0" quat="0 0 0.7071 0.7071">
                 <camera name="sensor_cam_right" pos="0 0 -0.002" fovy="120" zaxis="0 0 -1" />
                 <light name="sensor_light_right" pos="0 0 -0.05" dir="0 0 -1" diffuse="0.8 0.8 0.8" specular="0.2 0.2 0.2" directional="true" />
             </body>
@@ -66,13 +67,13 @@
             <!-- ======================================================================= -->
             <!-- ROTATING WHEELS: These bodies handle ONLY the rotation and the mesh     -->
             <!-- ======================================================================= -->
-            <body name="left_wheel" pos="0 -0.015 0" quat="0 0 -0.7071 0.7071">
+            <body name="left_wheel" pos="0 -0.005 0" quat="0 0 -0.7071 0.7071">
                 <joint name="left_joint" type="hinge" axis="0 0 1" damping="0.1"/>
                 <inertial pos="0 0 0" mass="0.2" diaginertia="0.001 0.001 0.001"/>
                 <include file="left_wheel/worldbody.xml"/>
             </body>
             
-            <body name="right_wheel" pos="0 0.015 0" quat="0 0 0.7071 0.7071">
+            <body name="right_wheel" pos="0 0.005 0" quat="0 0 0.7071 0.7071">
                 <joint name="right_joint" type="hinge" axis="0 0 1" damping="0.1"/>
                 <inertial pos="0 0 0" mass="0.2" diaginertia="0.001 0.001 0.001"/>
                 <include file="right_wheel/worldbody.xml"/>
@@ -96,8 +97,8 @@
                 <jointvel name="right_vel_sensor" joint="right_joint"/>
     </sensor>
     <actuator>
-        <motor name="left_motor" joint="left_joint" gear="1"/>
-        <motor name="right_motor" joint="right_joint" gear="1"/>
+        <motor name="left_motor" joint="left_joint" gear="2"/>
+        <motor name="right_motor" joint="right_joint" gear="2"/>
     </actuator>
 
       <deformable>

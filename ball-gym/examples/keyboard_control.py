@@ -18,7 +18,7 @@ def main():
     renderer = env.unwrapped.renderer
 
     # Define driving speeds
-    BASE_SPEED = 0.4
+    BASE_SPEED = 1.5
     TURN_SPEED = 1.5
     target_velocities = [0.0, 0.0]
 

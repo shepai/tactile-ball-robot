@@ -3,14 +3,14 @@ import xml.etree.ElementTree as ET
 
 def generate_dome(R=1.0, n_layers=20, n_total=300,
                   tip_layer_density=2.0, min_pts=6,
-                  remove_top_layers=1):
-
-    points = []
-    layer_indices = []   # stores indices of points per layer
+                  remove_bottom_layers=1):
+    layers = []  # each element is (Ni x 3)
     actual_layer_counts = []
 
+    # -------------------------
+    # Z layer generation
+    # -------------------------
     t = np.linspace(0, 1, n_layers)
-
     z_vals = R * (np.sin(t * np.pi / 2) ** (1 / tip_layer_density))
 
     circumferences = 2 * np.pi * np.sqrt(np.maximum(R**2 - z_vals**2, 0))
@@ -19,52 +19,44 @@ def generate_dome(R=1.0, n_layers=20, n_total=300,
 
     layer_counts = (weights * n_total).astype(int)
 
-    current_idx = 0
+    # -------------------------
+    # Build layers
+    # -------------------------
+    for z, n_pts in zip(z_vals, layer_counts):
 
-    for i, (z, n_pts) in enumerate(zip(z_vals, layer_counts)):
         r = np.sqrt(max(R**2 - z**2, 0))
 
-        layer_start_idx = current_idx
-
-        # apex / degenerate layer handling
+        # apex handling
         if r < 1e-8:
-            points.append((0.0, 0.0, R))
-            layer_indices.append([current_idx])
+            layers.append(np.array([[0.0, 0.0, R]]))
             actual_layer_counts.append(1)
-            current_idx += 1
             continue
 
         n_pts = max(min_pts, n_pts)
 
-        theta = np.linspace(0, 2*np.pi, n_pts, endpoint=False)
+        theta = np.linspace(0, 2 * np.pi, n_pts, endpoint=False)
 
         x = r * np.cos(theta)
         y = r * np.sin(theta)
 
-        for xi, yi in zip(x, y):
-            points.append((xi, yi, z))
+        layer = np.column_stack([x, y, np.full_like(x, z)])
 
-        layer_end_idx = current_idx + n_pts
-        layer_indices.append(list(range(layer_start_idx, layer_end_idx)))
-
+        layers.append(layer)
         actual_layer_counts.append(n_pts)
-        current_idx = layer_end_idx
 
     # -------------------------
-    # REMOVE TOP LAYERS HERE
+    # REMOVE TOP LAYERS (CORRECT)
     # -------------------------
-    if remove_top_layers > 0:
-        top_layers = layer_indices[-remove_top_layers:]
+    if remove_bottom_layers > 0:
+        layers = layers[remove_bottom_layers:]
+        actual_layer_counts = actual_layer_counts[remove_bottom_layers:]
 
-        flat_remove_idx = set(idx for layer in top_layers for idx in layer)
+    # -------------------------
+    # FLATTEN FINAL POINTS
+    # -------------------------
+    points = np.vstack(layers)
 
-        points = [
-            p for i, p in enumerate(points)
-            if i not in flat_remove_idx
-        ]
-        actual_layer_counts = actual_layer_counts[:-remove_top_layers]
-
-    return np.array(points) / 10.0, actual_layer_counts
+    return points / 10.0, actual_layer_counts
 def generate_xml(name,points, num,stiff=300,damp=20):
     if sum(num) != len(points):
         raise ValueError(
@@ -80,11 +72,12 @@ def generate_xml(name,points, num,stiff=300,damp=20):
             <inertial pos="0 0 0" mass="0.1" diaginertia="0.0005 0.0005 0.0005"/>
             """
     xml += f"""
-        <body name="cylinder_mount_{name}" pos="0 0 -0.01">
+        <body name="cylinder_mount_{name}" pos="0 0 0.02">
             <geom type="cylinder"
-                size="0.107 0.0025"
+                size="0.1 0.0025"
                 mass="0.07"
-                rgba="0 0 0 1" group="1"/>
+                rgba="0 0 0 1" group="1"
+                friction="1.2 0.05 0.001"/>
         </body>
         
 
