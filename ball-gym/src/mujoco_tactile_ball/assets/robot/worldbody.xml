@@ -1,25 +1,5 @@
-<mujoco model="dual_tactile_wheel">
+ <worldbody>
 
-    <option integrator="implicit" timestep="0.01"/>
-    <option iterations="50"/>
-    <asset>
-        <include file="left_wheel/asset.xml"/>
-        <include file="right_wheel/asset.xml"/>
-        <texture builtin="gradient" height="100" rgb1="1 1 1" rgb2="0 0 0" type="skybox" width="100" />
-    <texture builtin="flat" height="1278" mark="cross" markrgb="1 1 1" name="texgeom" random="0.01" rgb1="0.8 0.6 0.4" rgb2="0.8 0.6 0.4" type="cube" width="127" />
-    <texture builtin="checker" height="100" name="texplane" rgb1="0.2 0.4 0.6" rgb2="0.8 0.8 0.8" type="2d" width="100" />
-    <material name="MatPlane" reflectance="0.5" shininess="1" specular="1" texrepeat="60 60" texture="texplane" />
-    <material name="geom" texture="texgeom" texuniform="true" />
-    <hfield file="moss.png" name="mytilted" ncol="0" nrow="0" size="50 50 0.2 0.02" />
-    </asset>
-
-    <worldbody>
-        <geom conaffinity="1" condim="3" hfield="mytilted" material="MatPlane" name="floor" pos="0 0 0" rgba="0.8 0.9 0.8 1" type="hfield" />
-        <camera name="third person" mode="trackcom" target="robot" pos="0.5 0 0.8" fovy="60" euler="0 40 90"/>
-        <body name="robot" pos="0 0 0.15">
-        <!-- <camera name="third person" mode="track" target="robot" pos="0 -0.5 0.8" fovy="80" euler="40 0 0"/> -->
-            <freejoint/>
-            
             <inertial
             pos="0 0 0"
             mass="0.8"
@@ -27,12 +7,12 @@
             <geom type="cylinder" size="0.1 0.015" mass="0.8" quat="0 0 -0.7071 0.7071" rgba="0.05 0.05 0.05 1" group="1"/>
             <body name="counterweight">
                 <inertial
-                    pos="0 0 -0.04"
-                    mass="2.0"
+                    pos="0 0 -0.06"
+                    mass="3.0"
                     diaginertia="0.0005 0.0005 0.0005"/>
                 <geom contype="0" conaffinity="0"
                     type="box"
-                    pos="0 0 -0.04"
+                    pos="0 0 -0.06"
                     rgba="0.3 0 0 1" group="1"
                     size="0.02 0.017 0.02"
                     />
@@ -82,30 +62,4 @@
                 <include file="right_wheel/worldbody.xml"/>
             </body>
 
-        </body>
     </worldbody>
-
-    <tendon>
-        <include file="left_wheel/tendon.xml"/>
-        <include file="right_wheel/tendon.xml"/>
-    </tendon>
-    
-    <equality>
-        <include file="left_wheel/equality.xml"/>
-        <include file="right_wheel/equality.xml"/>
-        
-    </equality>
-    <sensor>
-                <jointvel name="left_vel_sensor" joint="left_joint"/>
-                <jointvel name="right_vel_sensor" joint="right_joint"/>
-    </sensor>
-    <actuator>
-        <motor name="left_motor" joint="left_joint" gear="2"/>
-        <motor name="right_motor" joint="right_joint" gear="2"/>
-    </actuator>
-
-      <deformable>
-        <!-- <include file="left_wheel/deformable.xml"/>
-        <include file="right_wheel/deformable.xml"/> -->
-        </deformable>
-</mujoco>

@@ -1,0 +1,4 @@
+<sensor>
+                <jointvel name="left_vel_sensor" joint="left_joint"/>
+                <jointvel name="right_vel_sensor" joint="right_joint"/>
+    </sensor>

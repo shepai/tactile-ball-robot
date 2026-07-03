@@ -1,0 +1,4 @@
+<asset>
+        <include file="left_wheel/asset.xml"/>
+        <include file="right_wheel/asset.xml"/>
+    </asset>

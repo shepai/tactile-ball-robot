@@ -2,7 +2,7 @@ import mujoco
 import mujoco.viewer
 
 # Path to your robot XML
-XML_PATH = "/home/dexter/Documents/GitHub/tactile-ball-robot/ball-gym/src/mujoco_tactile_ball/assets/robot/terrain.xml"
+XML_PATH = "/home/dexter/Documents/GitHub/tactile-ball-robot/ball-gym/src/mujoco_tactile_ball/assets/terrain.xml"
 
 # Load model
 model = mujoco.MjModel.from_xml_path(XML_PATH)

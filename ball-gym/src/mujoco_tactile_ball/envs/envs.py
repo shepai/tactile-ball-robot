@@ -3,7 +3,7 @@ from .base import TactileGymEnv
 class FlatTerrain(TactileGymEnv):
     def __init__(self):
         super().__init__(
-            xml_subpath=["assets","robot", "mainbody.xml"],
+            xml_subpath=["assets","flat.xml"],
             obs_dim=9,
             action_dim=3
         )
@@ -11,7 +11,7 @@ class FlatTerrain(TactileGymEnv):
 class Terrain(TactileGymEnv):
     def __init__(self):
         super().__init__(
-            xml_subpath=["assets","robot", "terrain.xml"],
+            xml_subpath=["assets", "terrain.xml"],
             obs_dim=9,
             action_dim=3
         )

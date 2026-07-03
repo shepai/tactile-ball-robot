@@ -1,0 +1,4 @@
+ <tendon>
+        <include file="left_wheel/tendon.xml"/>
+        <include file="right_wheel/tendon.xml"/>
+    </tendon>

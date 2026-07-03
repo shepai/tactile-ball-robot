@@ -7,7 +7,7 @@ import cv2
 
 
 def main():
-    env = gym.make("Terrain-tactile-ball")
+    env = gym.make("Flat-tactile-ball")
     obs, info = env.reset()
 
     model = env.unwrapped.model

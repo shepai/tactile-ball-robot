@@ -1,0 +1,5 @@
+ <equality>
+        <include file="left_wheel/equality.xml"/>
+        <include file="right_wheel/equality.xml"/>
+        
+    </equality>
