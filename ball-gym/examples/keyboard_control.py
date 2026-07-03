@@ -31,7 +31,8 @@ def main():
     # Track physical loop timings
     dt = model.opt.timestep
     last_time = time.perf_counter()
-
+    recording=False
+    video=False
     try:
         obs, reward, terminated, truncated, info = env.step(target_velocities)
         while True:
@@ -73,6 +74,18 @@ def main():
                 target_velocities = [-TURN_SPEED, -TURN_SPEED]
             elif key == ord('d'):
                 target_velocities = [TURN_SPEED, TURN_SPEED]
+            elif key == ord("r"):
+                if recording:
+                    video.release()
+                else:
+                    fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+                    video = cv2.VideoWriter(
+                        "keyboard_example.mp4",
+                        fourcc,
+                        30,
+                        (640, 480)  
+                    )
+                recording=not recording
             else:
                 # Gradual friction slowdown
                 target_velocities[0] *= 0.85
@@ -83,7 +96,8 @@ def main():
 
             # 3. Environment physical update step
             obs, reward, terminated, truncated, info = env.step(target_velocities)
-
+            if recording:
+                video.write(bgr_img)
             if terminated:
                 obs, info = env.reset()
                 target_velocities = [0.0, 0.0]
@@ -95,6 +109,8 @@ def main():
             last_time = time.perf_counter()
 
     finally:
+        if recording:
+            video.release()
         cv2.destroyAllWindows()
 
 

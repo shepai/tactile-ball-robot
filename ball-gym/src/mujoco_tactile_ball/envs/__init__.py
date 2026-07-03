@@ -3,10 +3,15 @@ from gymnasium.envs.registration import register
 
 register(
     id="Flat-tactile-ball",
-    entry_point="mujoco_tactile_ball.envs.flat:FlatTerrain",
+    entry_point="mujoco_tactile_ball.envs.envs:FlatTerrain",
 )
 
 register(
     id="Random-tactile-ball",
-    entry_point="mujoco_tactile_ball.envs.generate_random:RandomTerrain",
+    entry_point="mujoco_tactile_ball.envs.envs:RandomTerrain",
+)
+
+register(
+    id="terrain-tactile-ball",
+    entry_point="mujoco_tactile_ball.envs.envs:Terrain",
 )
