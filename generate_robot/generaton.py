@@ -99,7 +99,7 @@ def generate_xml(name,points, num,stiff=300,damp=20):
             <joint type="slide" axis="1 0 0" name="j_c{i}_x_{name}" stiffness="{stiff}" damping="{damp}"/>
             <joint type="slide" axis="0 1 0" name="j_c{i}_y_{name}" stiffness="{stiff}" damping="{damp}"/>
             <joint type="slide" axis="0 0 1" name="j_c{i}_z_{name}" stiffness="{stiff}" damping="{damp}"/>
-            <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
+            <geom type="sphere" size="0.004" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="{inner_pos[0]} {inner_pos[1]} {inner_pos[2]}" type="sphere" size="0.002" rgba="1 1 1 1" 
             
                 group="2" 
