@@ -5,6 +5,7 @@ from mujoco import MjModel, MjData
 from mujoco import mj_step, mj_resetData, mj_forward
 from importlib.resources import files
 from mujoco import renderer
+import mujoco 
 
 class TactileGymEnv(gym.Env):
     """
@@ -59,11 +60,18 @@ class TactileGymEnv(gym.Env):
         truncated = self.step_count >= self.max_steps
 
         return obs, reward, terminated, truncated, {}
-
+    def set_visibility(self, visible_ids):
+        for i in range(self.model.ngeom):
+            self.model.geom_rgba[i][3] = 0.0
+        for i in visible_ids:
+            self.model.geom_rgba[i][3] = 1.0
     def _get_obs(self):
         self.renderer.update_scene(self.data, camera="front_cam")
         img = self.renderer.render()
         img = img.astype("float32") / 255.0
+        all_geom_ids = np.arange(self.model.ngeom)
+        self.model.tendon_rgba[:, 3] = 0.0
+        self.set_visibility([])
         self.renderer.update_scene(self.data, camera="sensor_cam_left")
         Limg = self.renderer.render()
         Limg = Limg.astype("float32") / 255.0
@@ -76,6 +84,8 @@ class TactileGymEnv(gym.Env):
         "sensor_cam_right": Rimg,
         "front_cam": img,
     }
+        self.set_visibility(all_geom_ids)
+        self.model.tendon_rgba[:, 3] = 1
         return obs
 
     def _reward(self):

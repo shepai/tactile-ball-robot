@@ -65,10 +65,11 @@ def generate_xml(name,points, num,stiff=300,damp=20):
             <inertial pos="0 0 0" mass="0.1" diaginertia="0.0005 0.0005 0.0005"/>
             """
     xml += f"""
-        <body name="cylinder_mount_{name}" pos="0 0 -0.015">
+        <body name="cylinder_mount_{name}" pos="0 0 -0.01">
             <geom type="cylinder"
-                size="0.01 0.01"
-                mass="0.05"/>
+                size="0.107 0.0025"
+                mass="0.07"
+                rgba="0 0 0 0" group="1"/>
         </body>
         
 
@@ -93,7 +94,7 @@ def generate_xml(name,points, num,stiff=300,damp=20):
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="{inner_pos[0]} {inner_pos[1]} {inner_pos[2]}" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 

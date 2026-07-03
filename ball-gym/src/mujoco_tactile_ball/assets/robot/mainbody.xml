@@ -10,16 +10,30 @@
     </asset>
 
     <worldbody>
-        <geom name="floor" type="plane" size="0 0 1" pos="0 0 0" material="grid" condim="3"/>
+        <geom name="floor" type="plane" size="0 0 1" pos="0 0 0" material="grid" condim="3" group="1"/>
         
         <camera name="third person" mode="trackcom" target="robot" pos="0.5 0 0.8" fovy="60" euler="0 40 90"/>
         <body name="robot" pos="0 0 0.15">
         <!-- <camera name="third person" mode="track" target="robot" pos="0 -0.5 0.8" fovy="80" euler="40 0 0"/> -->
             <freejoint/>
             
-
-            <geom type="cylinder" size="0.06 0.001" mass="0.8" quat="0 0 -0.7071 0.7071"/>
-            <camera name="front_cam" pos="0.4 0 0.03" fovy="80" zaxis="0 0 -1" />
+            <inertial
+            pos="0 0 0"
+            mass="0.8"
+            diaginertia="0.01 0.01 0.02"/>
+            <geom type="cylinder" size="0.103 0.0025" mass="0.8" quat="0 0 -0.7071 0.7071"/>
+            <body name="counterweight">
+                <inertial
+                    pos="0 0 -0.04"
+                    mass="1.8"
+                    diaginertia="0.0005 0.0005 0.0005"/>
+                <geom contype="0" conaffinity="0"
+                    type="box"
+                    pos="0 0 -0.04"
+                    size="0.02 0.007 0.02"
+                    />
+            </body>
+            <camera name="front_cam" pos="0.1 0 0.03" fovy="80" euler="0 -90 0"/>
 
             <!-- ======================================================================= -->
             <!-- STABLE HOUSINGS: These hold the cameras and lights so they do NOT rotate -->
@@ -37,15 +51,15 @@
             <!-- ======================================================================= -->
             <!-- ROTATING WHEELS: These bodies handle ONLY the rotation and the mesh     -->
             <!-- ======================================================================= -->
-            <body name="left_wheel" pos="0 -0.005 0" quat="0 0 -0.7071 0.7071">
+            <body name="left_wheel" pos="0 -0.015 0" quat="0 0 -0.7071 0.7071">
                 <joint name="left_joint" type="hinge" axis="0 0 1"/>
-                <inertial pos="0 0 0" mass="0.5" diaginertia="0.001 0.001 0.001"/>
+                <inertial pos="0 0 0" mass="0.2" diaginertia="0.001 0.001 0.001"/>
                 <include file="left_wheel/worldbody.xml"/>
             </body>
             
-            <body name="right_wheel" pos="0 0.005 0" quat="0 0 0.7071 0.7071">
+            <body name="right_wheel" pos="0 0.015 0" quat="0 0 0.7071 0.7071">
                 <joint name="right_joint" type="hinge" axis="0 0 1" />
-                <inertial pos="0 0 0" mass="0.5" diaginertia="0.001 0.001 0.001"/>
+                <inertial pos="0 0 0" mass="0.2" diaginertia="0.001 0.001 0.001"/>
                 <include file="right_wheel/worldbody.xml"/>
             </body>
 
@@ -72,7 +86,7 @@
     </actuator>
 
       <deformable>
-        <include file="left_wheel/deformable.xml"/>
-        <include file="right_wheel/deformable.xml"/>
+        <!-- <include file="left_wheel/deformable.xml"/>
+        <include file="right_wheel/deformable.xml"/> -->
         </deformable>
 </mujoco>

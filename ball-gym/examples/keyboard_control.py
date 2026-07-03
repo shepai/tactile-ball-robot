@@ -15,7 +15,7 @@ def main():
 
     # Offscreen renderer configuration
     width, height = 640, 480
-    renderer = env.renderer
+    renderer = env.unwrapped.renderer
 
     # Define driving speeds
     BASE_SPEED = 0.4

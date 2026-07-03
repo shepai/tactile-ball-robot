@@ -7,10 +7,11 @@
         <body name="flexible_structure_rightwheel" pos="0 0 0">
             <inertial pos="0 0 0" mass="0.1" diaginertia="0.0005 0.0005 0.0005"/>
             
-        <body name="cylinder_mount_rightwheel" pos="0 0 -0.015">
+        <body name="cylinder_mount_rightwheel" pos="0 0 -0.01">
             <geom type="cylinder"
-                size="0.01 0.01"
-                mass="0.05"/>
+                size="0.107 0.0025"
+                mass="0.07"
+                rgba="0 0 0 0" group="1"/>
         </body>
         
 
@@ -22,7 +23,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.020000000000000004 -0.0 -0.0" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -37,7 +38,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.018477590650225733 -0.007653668647301795 -0.0" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -52,7 +53,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.01414213562373095 -0.01414213562373095 -0.0" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -67,7 +68,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.007653668647301797 -0.018477590650225733 -0.0" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -82,7 +83,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-1.2246467991473534e-18 -0.020000000000000004 -0.0" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -97,7 +98,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.007653668647301795 -0.018477590650225733 -0.0" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -112,7 +113,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.01414213562373095 -0.01414213562373095 -0.0" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -127,7 +128,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.018477590650225733 -0.007653668647301798 -0.0" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -142,7 +143,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.020000000000000004 -2.4492935982947068e-18 -0.0" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -157,7 +158,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.018477590650225736 0.007653668647301794 -0.0" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -172,7 +173,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.014142135623730954 0.01414213562373095 -0.0" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -187,7 +188,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.0076536686473018065 0.018477590650225733 -0.0" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -202,7 +203,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="3.67394039744206e-18 0.020000000000000004 -0.0" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -217,7 +218,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.007653668647301801 0.018477590650225733 -0.0" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -232,7 +233,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.014142135623730949 0.014142135623730954 -0.0" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -247,7 +248,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.018477590650225733 0.007653668647301808 -0.0" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -262,7 +263,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.0188471273556125 -0.0 -0.006692218648648828" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -277,7 +278,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.017412475210483957 -0.007212483386667769 -0.006692218648648828" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -292,7 +293,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.013326931559040082 -0.013326931559040078 -0.006692218648648828" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -307,7 +308,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.00721248338666777 -0.017412475210483957 -0.006692218648648828" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -322,7 +323,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-1.1540537094586683e-18 -0.0188471273556125 -0.006692218648648828" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -337,7 +338,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.007212483386667768 -0.017412475210483957 -0.006692218648648828" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -352,7 +353,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.013326931559040078 -0.013326931559040082 -0.006692218648648828" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -367,7 +368,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.017412475210483957 -0.00721248338666777 -0.006692218648648828" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -382,7 +383,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.0188471273556125 -2.3081074189173366e-18 -0.006692218648648828" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -397,7 +398,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.01741247521048396 0.007212483386667766 -0.006692218648648828" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -412,7 +413,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.013326931559040085 0.013326931559040078 -0.006692218648648828" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -427,7 +428,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.007212483386667779 0.017412475210483953 -0.006692218648648828" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -442,7 +443,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="3.4621611283760045e-18 0.0188471273556125 -0.006692218648648828" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -457,7 +458,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.007212483386667773 0.017412475210483957 -0.006692218648648828" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -472,7 +473,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.013326931559040077 0.013326931559040085 -0.006692218648648828" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -487,7 +488,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.017412475210483953 0.00721248338666778 -0.006692218648648828" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -502,7 +503,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.017634954675798696 -0.0 -0.009434424920604634" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -517,7 +518,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.016110332739809045 -0.007172782265628248 -0.009434424920604634" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -532,7 +533,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.011800087915328165 -0.013105325314848176 -0.009434424920604634" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -547,7 +548,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.00544950068985374 -0.016771838558988034 -0.009434424920604634" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -562,7 +563,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.0018433547120559554 -0.017538348548908914 -0.009434424920604634" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -577,7 +578,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.008817477337899343 -0.015272318743828842 -0.009434424920604634" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -592,7 +593,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.014266978027753084 -0.010365566283280668 -0.009434424920604634" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -607,7 +608,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.0172495886051819 -0.0036665132441398643 -0.009434424920604634" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -622,7 +623,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.017249588605181904 0.0036665132441398534 -0.009434424920604634" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -637,7 +638,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.01426697802775309 0.010365566283280662 -0.009434424920604634" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -652,7 +653,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.008817477337899357 0.015272318743828834 -0.009434424920604634" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -667,7 +668,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.0018433547120559714 0.01753834854890891 -0.009434424920604634" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -682,7 +683,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.005449500689853735 0.016771838558988037 -0.009434424920604634" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -697,7 +698,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.011800087915328154 0.013105325314848185 -0.009434424920604634" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -712,7 +713,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.016110332739809035 0.0071727822656282615 -0.009434424920604634" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -727,7 +728,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.01636729590426999 -0.0 -0.011493982111612445" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -742,7 +743,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.014746424061494033 -0.007101503546188157 -0.011493982111612445" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -757,7 +758,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.010204842080316558 -0.012796467220828318 -0.011493982111612445" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -772,7 +773,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.003642065970957518 -0.015956933624012053 -0.011493982111612445" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -787,7 +788,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.0036420659709575157 -0.015956933624012053 -0.011493982111612445" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -802,7 +803,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.010204842080316554 -0.012796467220828318 -0.011493982111612445" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -817,7 +818,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.01474642406149403 -0.007101503546188158 -0.011493982111612445" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -832,7 +833,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.01636729590426999 -2.0044156539861822e-18 -0.011493982111612445" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -847,7 +848,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.014746424061494033 0.007101503546188156 -0.011493982111612445" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -862,7 +863,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.01020484208031656 0.012796467220828315 -0.011493982111612445" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -877,7 +878,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.00364206597095752 0.015956933624012053 -0.011493982111612445" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -892,7 +893,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.0036420659709575144 0.015956933624012053 -0.011493982111612445" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -907,7 +908,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.010204842080316552 0.012796467220828318 -0.011493982111612445" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -922,7 +923,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.01474642406149403 0.007101503546188161 -0.011493982111612445" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -937,7 +938,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.015048139564510184 -0.0 -0.013173970382804998" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -952,7 +953,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.013324465852266014 -0.0069932191517765065 -0.013173970382804998" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -967,7 +968,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.008548317590488566 -0.012384376073307873 -0.013173970382804998" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -982,7 +983,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.001813852787124843 -0.014938421684355286 -0.013173970382804998" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -997,7 +998,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.005336143830473442 -0.014070254915014048 -0.013173970382804998" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1012,7 +1013,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.01126369420401466 -0.00997876230959648 -0.013173970382804998" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1027,7 +1028,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.014610867977646397 -0.00360125551617264 -0.013173970382804998" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1042,7 +1043,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.014610867977646397 0.0036012555161726296 -0.013173970382804998" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1057,7 +1058,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.011263694204014667 0.009978762309596472 -0.013173970382804998" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1072,7 +1073,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.0053361438304734485 0.014070254915014044 -0.013173970382804998" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1087,7 +1088,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.0018138527871248294 0.014938421684355286 -0.013173970382804998" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1102,7 +1103,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.008548317590488559 0.012384376073307876 -0.013173970382804998" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1117,7 +1118,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.013324465852266008 0.006993219151776516 -0.013173970382804998" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1132,7 +1133,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.013681636210405005 -0.0 -0.014588105792258794" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1147,7 +1148,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.011848644523547792 -0.0068408181052025015 -0.014588105792258794" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1162,7 +1163,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.006840818105202504 -0.011848644523547789 -0.014588105792258794" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1177,7 +1178,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-8.377585996085506e-19 -0.013681636210405005 -0.014588105792258794" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1192,7 +1193,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.006840818105202498 -0.011848644523547792 -0.014588105792258794" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1207,7 +1208,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.011848644523547789 -0.006840818105202507 -0.014588105792258794" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1222,7 +1223,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.013681636210405005 -1.6755171992171013e-18 -0.014588105792258794" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1237,7 +1238,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.011848644523547794 0.006840818105202498 -0.014588105792258794" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1252,7 +1253,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.006840818105202508 0.011848644523547787 -0.014588105792258794" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1267,7 +1268,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="2.5132757988256516e-18 0.013681636210405005 -0.014588105792258794" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1282,7 +1283,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.006840818105202493 0.011848644523547796 -0.014588105792258794" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1297,7 +1298,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.011848644523547787 0.006840818105202508 -0.014588105792258794" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1312,7 +1313,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.01227208536706401 -0.0 -0.015792274083978326" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1327,7 +1328,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.010323935170248441 -0.006634790264734363 -0.015792274083978326" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1342,7 +1343,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.005098008502319156 -0.011163081499603423 -0.015792274083978326" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1357,7 +1358,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.0017464998442896622 -0.012147173232913196 -0.015792274083978326" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1372,7 +1373,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.00803650683051473 -0.009274623292597747 -0.015792274083978326" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1387,7 +1388,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.01177497968129521 -0.0034574459882392387 -0.015792274083978326" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1402,7 +1403,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.01177497968129521 0.003457445988239235 -0.015792274083978326" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1417,7 +1418,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.008036506830514732 0.009274623292597746 -0.015792274083978326" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1432,7 +1433,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.001746499844289665 0.012147173232913193 -0.015792274083978326" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1447,7 +1448,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.005098008502319152 0.011163081499603426 -0.015792274083978326" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1462,7 +1463,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.010323935170248441 0.006634790264734361 -0.015792274083978326" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1477,7 +1478,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.01082392200292394 -0.0 -0.01681792830507429" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1492,7 +1493,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.008756736846154387 -0.0063621417252827 -0.01681792830507429" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1507,7 +1508,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.0033447758446924175 -0.010294161552751306 -0.01681792830507429" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1522,7 +1523,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.003344775844692416 -0.010294161552751306 -0.01681792830507429" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1537,7 +1538,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.008756736846154387 -0.006362141725282701 -0.01681792830507429" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1552,7 +1553,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.01082392200292394 -1.3255481435101414e-18 -0.01681792830507429" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1567,7 +1568,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.008756736846154389 0.0063621417252826985 -0.01681792830507429" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1582,7 +1583,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.003344775844692419 0.010294161552751306 -0.01681792830507429" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1597,7 +1598,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.0033447758446924145 0.010294161552751306 -0.01681792830507429" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1612,7 +1613,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.008756736846154387 0.006362141725282703 -0.01681792830507429" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1627,7 +1628,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.009341702575697218 -0.0 -0.017684247029127704" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1642,7 +1643,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.0071561593473830985 -0.0060047306690350025 -0.017684247029127704" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1657,7 +1658,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.0016221696285762923 -0.009199781122880734 -0.017684247029127704" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1672,7 +1673,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.004670851287848607 -0.008090151745152315 -0.017684247029127704" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1687,7 +1688,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.00877832897595939 -0.0031950504538457328 -0.017684247029127704" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1702,7 +1703,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.00877832897595939 0.0031950504538457315 -0.017684247029127704" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1717,7 +1718,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.004670851287848613 0.008090151745152312 -0.017684247029127704" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1732,7 +1733,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.001622169628576288 0.009199781122880736 -0.017684247029127704" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1747,7 +1748,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.007156159347383097 0.006004730669035006 -0.017684247029127704" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1762,7 +1763,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.007830090696070277 -0.0 -0.01840352356727683" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1777,7 +1778,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.005536710228496987 -0.005536710228496986 -0.01840352356727683" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1792,7 +1793,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-4.794547753987967e-19 -0.007830090696070277 -0.01840352356727683" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1807,7 +1808,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.005536710228496986 -0.005536710228496987 -0.01840352356727683" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1822,7 +1823,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.007830090696070277 -9.589095507975934e-19 -0.01840352356727683" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1837,7 +1838,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.005536710228496989 0.005536710228496986 -0.01840352356727683" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1852,7 +1853,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="1.4383643261963904e-18 0.007830090696070277 -0.01840352356727683" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1867,7 +1868,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.0055367102284969855 0.005536710228496989 -0.01840352356727683" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1882,7 +1883,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.006293842454258951 -0.0 -0.018983875978339296" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1897,7 +1898,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.0031469212271294763 -0.00545062745280525 -0.018983875978339296" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1912,7 +1913,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.003146921227129474 -0.005450627452805251 -0.018983875978339296" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1927,7 +1928,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.006293842454258951 -7.707734015945947e-19 -0.018983875978339296" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1942,7 +1943,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.0031469212271294784 0.0054506274528052494 -0.018983875978339296" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1957,7 +1958,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.0031469212271294715 0.005450627452805254 -0.018983875978339296" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1972,7 +1973,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.004737791455589084 -0.0 -0.019430731641483474" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -1987,7 +1988,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.0023688957277945423 -0.004103047758372999 -0.019430731641483474" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -2002,7 +2003,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.002368895727794541 -0.004103047758373 -0.019430731641483474" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -2017,7 +2018,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.004737791455589084 -5.80212114111485e-19 -0.019430731641483474" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -2032,7 +2033,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.002368895727794544 0.0041030477583729975 -0.019430731641483474" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -2047,7 +2048,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.002368895727794539 0.004103047758373001 -0.019430731641483474" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -2062,7 +2063,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.003166833612185925 -0.0 -0.019747687582922956" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -2077,7 +2078,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.0015834168060929626 -0.002742558357711448 -0.019747687582922956" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -2092,7 +2093,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.0015834168060929615 -0.002742558357711448 -0.019747687582922956" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -2107,7 +2108,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.003166833612185925 -3.8782526465957435e-19 -0.019747687582922956" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -2122,7 +2123,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.001583416806092964 0.0027425583577114472 -0.019747687582922956" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -2137,7 +2138,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.0015834168060929602 0.0027425583577114494 -0.019747687582922956" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -2152,7 +2153,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.001585911738623231 -0.0 -0.019937022946199794" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -2167,7 +2168,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.0007929558693116154 -0.0013734398538076645 -0.019937022946199794" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -2182,7 +2183,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.000792955869311615 -0.001373439853807665 -0.019937022946199794" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -2197,7 +2198,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.001585911738623231 -1.9421817344351534e-19 -0.019937022946199794" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -2212,7 +2213,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="0.0007929558693116162 0.0013734398538076643 -0.019937022946199794" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -2227,7 +2228,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.0007929558693116143 0.0013734398538076651 -0.019937022946199794" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
@@ -2242,7 +2243,7 @@
             <geom type="sphere" size="0.001" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
             <geom pos="-0.0 -0.0 -0.020000000000000004" type="sphere" size="0.002" rgba="1 1 1 1" 
             
-                group="1" 
+                group="2" 
                 contype="0" 
                 conaffinity="0" 
                 mass="0" 
