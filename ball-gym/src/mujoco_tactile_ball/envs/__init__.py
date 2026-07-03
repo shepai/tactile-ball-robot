@@ -12,6 +12,6 @@ register(
 )
 
 register(
-    id="terrain-tactile-ball",
+    id="Terrain-tactile-ball",
     entry_point="mujoco_tactile_ball.envs.envs:Terrain",
 )
