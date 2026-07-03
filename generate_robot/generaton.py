@@ -84,7 +84,7 @@ def generate_xml(name,points, num,stiff=300,damp=20):
             <geom type="cylinder"
                 size="0.107 0.0025"
                 mass="0.07"
-                rgba="0 0 0 0" group="1"/>
+                rgba="0 0 0 1" group="1"/>
         </body>
         
 
@@ -244,8 +244,8 @@ def seperate(folder):
 def generate_body():
     points,layers=generate_dome(R=1.0, n_layers=16, n_total=150,
                   tip_layer_density=2.0, min_pts=6)
-    left_xml=generate_xml("leftwheel",points,layers,stiff=150,damp=60)
-    right_xml=generate_xml("rightwheel",points,layers,stiff=150,damp=60)
+    left_xml=generate_xml("leftwheel",points,layers,stiff=100,damp=50)
+    right_xml=generate_xml("rightwheel",points,layers,stiff=100,damp=50)
     with open("/home/dexter/Documents/GitHub/tactile-ball-robot/ball-gym/src/mujoco_tactile_ball/assets/robot/left_wheel/generated.xml","w") as file:
         file.write(left_xml)
     with open("/home/dexter/Documents/GitHub/tactile-ball-robot/ball-gym/src/mujoco_tactile_ball/assets/robot/right_wheel/generated.xml","w") as file:

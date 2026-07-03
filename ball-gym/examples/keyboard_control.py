@@ -33,13 +33,31 @@ def main():
     last_time = time.perf_counter()
 
     try:
+        obs, reward, terminated, truncated, info = env.step(target_velocities)
         while True:
             # 1. Render and draw scenes regardless of keyboard interactions
             renderer.update_scene(data, camera="third person")
             rgb_img = renderer.render()
-
+            robo_view=cv2.cvtColor(obs['front_cam']*255, cv2.COLOR_RGB2BGR)
+            left_view=cv2.cvtColor(obs['sensor_cam_left']*255, cv2.COLOR_RGB2BGR)
+            right_view=cv2.cvtColor(obs['sensor_cam_right']*255, cv2.COLOR_RGB2BGR)
+            h, w = 100, 120
+            robo_view = cv2.resize(robo_view, (w, h), interpolation=cv2.INTER_AREA)
+            left_view = cv2.resize(left_view, (w, h), interpolation=cv2.INTER_AREA)
+            right_view = cv2.resize(right_view, (w, h), interpolation=cv2.INTER_AREA)
             bgr_img = cv2.cvtColor(rgb_img, cv2.COLOR_RGB2BGR)
-
+            H, W = bgr_img.shape[:2]
+            x1 = W - w
+            x2 = W
+            y1 = 0
+            y2 = h
+            bgr_img[y1:y2, x1:x2] = robo_view
+            y1 = h
+            y2 = 2 * h
+            bgr_img[y1:y2, x1:x2] = left_view
+            y1 = 2 * h
+            y2 = 3 * h
+            bgr_img[y1:y2, x1:x2] = right_view
             cv2.imshow("third_person_view", bgr_img)
             # 2. Extract input with 1ms cycle yield
             key = cv2.waitKey(1) & 0xFF
