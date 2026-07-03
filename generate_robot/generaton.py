@@ -74,7 +74,7 @@ def generate_xml(name,points, num,stiff=300,damp=20):
     xml += f"""
         <body name="cylinder_mount_{name}" pos="0 0 0.02">
             <geom type="cylinder"
-                size="0.1 0.006"
+                size="0.098 0.006"
                 mass="0.07"
                 rgba="0 0 0 1" group="1"
                 friction="1.2 0.05 0.001"/>
@@ -234,17 +234,21 @@ def seperate(folder):
                 encoding="utf-8",
                 xml_declaration=False,
             )
+
 def generate_body():
+    PATH="/home/dexter/Documents/GitHub/tactile-ball-robot/ball-gym/src/mujoco_tactile_ball/assets/robot/"
+    if sys.platform.startswith("win"): PATH="C:/Users/dexte/Documents/GitHub/tactile-ball-robot/ball-gym/src/mujoco_tactile_ball/assets/robot/"
     points,layers=generate_dome(R=1.0, n_layers=16, n_total=150,
-                  tip_layer_density=2.0, min_pts=6)
+                  tip_layer_density=2.0, min_pts=6,remove_bottom_layers=0)
     left_xml=generate_xml("leftwheel",points,layers,stiff=80,damp=10)
     right_xml=generate_xml("rightwheel",points,layers,stiff=80,damp=10)
-    with open("/home/dexter/Documents/GitHub/tactile-ball-robot/ball-gym/src/mujoco_tactile_ball/assets/robot/left_wheel/generated.xml","w") as file:
+    with open(PATH+"left_wheel/generated.xml","w") as file:
         file.write(left_xml)
-    with open("/home/dexter/Documents/GitHub/tactile-ball-robot/ball-gym/src/mujoco_tactile_ball/assets/robot/right_wheel/generated.xml","w") as file:
+    with open(PATH+"right_wheel/generated.xml","w") as file:
         file.write(right_xml)
-    seperate("/home/dexter/Documents/GitHub/tactile-ball-robot/ball-gym/src/mujoco_tactile_ball/assets/robot/left_wheel/")
-    seperate("/home/dexter/Documents/GitHub/tactile-ball-robot/ball-gym/src/mujoco_tactile_ball/assets/robot/right_wheel/")
+    seperate(PATH+"/left_wheel/")
+    seperate(PATH+"/right_wheel/")
 
 if __name__=="__main__":
+    import sys
     generate_body()
