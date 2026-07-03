@@ -44,9 +44,6 @@
   <joint joint1="j_c14_x_rightwheel" polycoef="0 1 0 0 0" />
   <joint joint1="j_c14_y_rightwheel" polycoef="0 1 0 0 0" />
   <joint joint1="j_c14_z_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c15_x_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c15_y_rightwheel" polycoef="0 1 0 0 0" />
-  <joint joint1="j_c15_z_rightwheel" polycoef="0 1 0 0 0" />
 </equality>
 
     

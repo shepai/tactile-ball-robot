@@ -2,41 +2,38 @@ import numpy as np
 import xml.etree.ElementTree as ET
 
 def generate_dome(R=1.0, n_layers=20, n_total=300,
-                  tip_layer_density=2.0, min_pts=6):
+                  tip_layer_density=2.0, min_pts=6,
+                  remove_top_layers=1):
 
     points = []
+    layer_indices = []   # stores indices of points per layer
     actual_layer_counts = []
 
-    # 1. GENERATE NON-LINEAR Z-LAYERS
-    # t goes from 0 to 1 linearly
     t = np.linspace(0, 1, n_layers)
-    
-    # Using a sine distribution pushes more z-layers toward the top (R)
-    # As t approaches 1, sin(t * pi/2) slows down, clustering the layers tightly at the tip.
-    # Adjust tip_layer_density (exponent) to group them even closer.
+
     z_vals = R * (np.sin(t * np.pi / 2) ** (1 / tip_layer_density))
 
-    # 2. ALLOCATE POINTS EVENLY ACROSS THE NEW LAYERS
-    # We want a relatively flat profile per ring so layers don't starve.
-    # Give a slight weight to circumferences so lower rings still close properly.
     circumferences = 2 * np.pi * np.sqrt(np.maximum(R**2 - z_vals**2, 0))
-    weights = circumferences + 1.0  # The + 1.0 prevents top rings from dropping to 0 points
+    weights = circumferences + 1.0
     weights = weights / weights.sum()
 
     layer_counts = (weights * n_total).astype(int)
 
+    current_idx = 0
+
     for i, (z, n_pts) in enumerate(zip(z_vals, layer_counts)):
         r = np.sqrt(max(R**2 - z**2, 0))
 
-        # -------------------------
-        # apex layer handling
-        # -------------------------
-        if r < 1e-8 or i == len(z_vals) - 1:
+        layer_start_idx = current_idx
+
+        # apex / degenerate layer handling
+        if r < 1e-8:
             points.append((0.0, 0.0, R))
+            layer_indices.append([current_idx])
             actual_layer_counts.append(1)
+            current_idx += 1
             continue
 
-        # Keep a healthy minimum of points per ring so the mesh remains stable
         n_pts = max(min_pts, n_pts)
 
         theta = np.linspace(0, 2*np.pi, n_pts, endpoint=False)
@@ -47,7 +44,25 @@ def generate_dome(R=1.0, n_layers=20, n_total=300,
         for xi, yi in zip(x, y):
             points.append((xi, yi, z))
 
+        layer_end_idx = current_idx + n_pts
+        layer_indices.append(list(range(layer_start_idx, layer_end_idx)))
+
         actual_layer_counts.append(n_pts)
+        current_idx = layer_end_idx
+
+    # -------------------------
+    # REMOVE TOP LAYERS HERE
+    # -------------------------
+    if remove_top_layers > 0:
+        top_layers = layer_indices[-remove_top_layers:]
+
+        flat_remove_idx = set(idx for layer in top_layers for idx in layer)
+
+        points = [
+            p for i, p in enumerate(points)
+            if i not in flat_remove_idx
+        ]
+        actual_layer_counts = actual_layer_counts[:-remove_top_layers]
 
     return np.array(points) / 10.0, actual_layer_counts
 def generate_xml(name,points, num,stiff=300,damp=20):
@@ -227,7 +242,7 @@ def seperate(folder):
                 xml_declaration=False,
             )
 def generate_body():
-    points,layers=generate_dome(R=1.0, n_layers=15, n_total=150,
+    points,layers=generate_dome(R=1.0, n_layers=16, n_total=150,
                   tip_layer_density=2.0, min_pts=6)
     left_xml=generate_xml("leftwheel",points,layers,stiff=150,damp=60)
     right_xml=generate_xml("rightwheel",points,layers,stiff=150,damp=60)
