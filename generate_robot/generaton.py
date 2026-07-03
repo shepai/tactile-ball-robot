@@ -74,7 +74,7 @@ def generate_xml(name,points, num,stiff=300,damp=20):
     xml += f"""
         <body name="cylinder_mount_{name}" pos="0 0 0.02">
             <geom type="cylinder"
-                size="0.1 0.0025"
+                size="0.1 0.006"
                 mass="0.07"
                 rgba="0 0 0 1" group="1"
                 friction="1.2 0.05 0.001"/>

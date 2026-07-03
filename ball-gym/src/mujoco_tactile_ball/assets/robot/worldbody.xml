@@ -4,11 +4,11 @@
             pos="0 0 0"
             mass="0.8"
             diaginertia="0.01 0.01 0.02"/>
-            <geom type="cylinder" size="0.1 0.015" mass="0.8" quat="0 0 -0.7071 0.7071" rgba="0.05 0.05 0.05 1" group="1"/>
+            <geom type="cylinder" size="0.09 0.015" mass="0.8" quat="0 0 -0.7071 0.7071" rgba="0.05 0.05 0.05 1" group="1"/>
             <body name="counterweight">
                 <inertial
                     pos="0 0 -0.06"
-                    mass="3.0"
+                    mass="4.0"
                     diaginertia="0.0005 0.0005 0.0005"/>
                 <geom contype="0" conaffinity="0"
                     type="box"

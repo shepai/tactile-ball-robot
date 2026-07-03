@@ -1,4 +1,4 @@
  <actuator>
-        <motor name="left_motor" joint="left_joint" gear="2"/>
-        <motor name="right_motor" joint="right_joint" gear="2"/>
+        <motor name="left_motor" joint="left_joint" gear="3"/>
+        <motor name="right_motor" joint="right_joint" gear="3"/>
     </actuator>

@@ -3,7 +3,7 @@
             <inertial pos="0 0 0" mass="0.1" diaginertia="0.0005 0.0005 0.0005" />
             
         <body name="cylinder_mount_leftwheel" pos="0 0 0.02">
-            <geom type="cylinder" size="0.1 0.0025" mass="0.07" rgba="0 0 0 1" group="1" friction="1.2 0.05 0.001" />
+            <geom type="cylinder" size="0.1 0.006" mass="0.07" rgba="0 0 0 1" group="1" friction="1.2 0.05 0.001" />
         </body>
         
 
