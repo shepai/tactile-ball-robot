@@ -1,5 +1,5 @@
 <mujoco model="dual_tactile_wheel">
-
+    
     <option integrator="implicitfast" timestep="0.002"/>
     <option iterations="50"/>
     <asset>
@@ -14,6 +14,7 @@
         
         <camera name="third person" mode="trackcom" target="robot" pos="0.5 0 0.8" fovy="60" euler="0 40 90"/>
         <body name="robot" pos="0 0 0.15">
+        <joint damping="5"/>
         <!-- <camera name="third person" mode="track" target="robot" pos="0 -0.5 0.8" fovy="80" euler="40 0 0"/> -->
             <freejoint/>
             

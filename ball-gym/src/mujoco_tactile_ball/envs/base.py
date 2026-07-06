@@ -47,10 +47,27 @@ class TactileGymEnv(gym.Env):
         mj_resetData(self.model, self.data)
         self.step_count = 0
         return self._get_obs(), {}
-
     def step(self, action):
+        body_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "robot")
+        
         mj_forward(self.model, self.data)
-        self.control_robot_speed(*action)
+        self.control_robot_speed(action[0], action[1])
+        
+        if action[-1] == 1: 
+            for jnt_id in range(self.model.njnt):
+                qpos_adr = self.model.jnt_qposadr[jnt_id]
+                if self.model.jnt_type[jnt_id] == mujoco.mjtJoint.mjJNT_FREE:
+                    #self.data.qpos[qpos_adr + 2] += 0.2  # Move free joint Z up
+                    self.data.qvel[self.model.jnt_dofadr[jnt_id] + 2] = 1
+            
+            body_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "robot")
+
+            self.model.body_pos[body_id][2] += 0.5  # Lift structural Z axis
+            
+            mujoco.mj_kinematics(self.model, self.data)
+            mujoco.mj_forward(self.model, self.data)
+
+
         mj_step(self.model, self.data)
         self.step_count += 1
 

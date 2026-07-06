@@ -20,7 +20,7 @@ def main():
     # Define driving speeds
     BASE_SPEED = 1.5
     TURN_SPEED = 1.5
-    target_velocities = [0.0, 0.0]
+    target_velocities = [0.0, 0.0, 0]
 
     # Warmup loop
     for _ in range(100):
@@ -67,13 +67,15 @@ def main():
                 break
 
             if key == ord('w'):
-                target_velocities = [BASE_SPEED, -BASE_SPEED]
+                target_velocities = [BASE_SPEED, -BASE_SPEED, 0]
             elif key == ord('s'):
-                target_velocities = [-BASE_SPEED, BASE_SPEED]
+                target_velocities = [-BASE_SPEED, BASE_SPEED, 0]
             elif key == ord('a'):
-                target_velocities = [-TURN_SPEED, -TURN_SPEED]
+                target_velocities = [-TURN_SPEED, -TURN_SPEED, 0]
             elif key == ord('d'):
-                target_velocities = [TURN_SPEED, TURN_SPEED]
+                target_velocities = [TURN_SPEED, TURN_SPEED, 0]
+            elif key == ord(' '):
+                target_velocities = [0, 0, 1]
             elif key == ord("r"):
                 if recording:
                     video.release()
@@ -90,7 +92,7 @@ def main():
                 # Gradual friction slowdown
                 target_velocities[0] *= 0.85
                 target_velocities[1] *= 0.85
-
+                target_velocities[2]=0
                 if abs(target_velocities[0]) < 0.05: target_velocities[0] = 0.0
                 if abs(target_velocities[1]) < 0.05: target_velocities[1] = 0.0
 
@@ -100,7 +102,7 @@ def main():
                 video.write(bgr_img)
             if terminated:
                 obs, info = env.reset()
-                target_velocities = [0.0, 0.0]
+                target_velocities = [0.0, 0.0, 0]
 
             # 4. CRITICAL FIX: Precision timing loop to stop OS events from freezing frames
             elapsed = time.perf_counter() - last_time
