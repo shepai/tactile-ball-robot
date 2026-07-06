@@ -2,7 +2,7 @@ import gymnasium as gym
 import numpy as np
 from gymnasium import spaces
 from mujoco import MjModel, MjData
-from mujoco import mj_step, mj_resetData, mj_forward
+from mujoco import mj_resetData
 from importlib.resources import files
 from mujoco import renderer
 import mujoco 
@@ -47,13 +47,27 @@ class TactileGymEnv(gym.Env):
         mj_resetData(self.model, self.data)
         self.step_count = 0
         return self._get_obs(), {}
+    def is_robot_touching_floor(self):
+        # Get the base robot body ID
+        robot_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "robot")
+        
+        # Scan every body in your robot
+        for body_idx in range(self.model.nbody):
+            is_part_of_robot = (body_idx == robot_id) or (self.model.body_parentid[body_idx] == robot_id)
+            
+            if is_part_of_robot:
+                part_z = self.data.xpos[body_idx][2]
+                
+                if part_z < 0.1: 
+                    return True
+                    
+        return False
     def step(self, action):
         body_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "robot")
-        
-        mj_forward(self.model, self.data)
+        mujoco.mj_forward(self.model, self.data)
         self.control_robot_speed(action[0], action[1])
         
-        if action[-1] == 1: 
+        if action[-1] == 1 and self.is_robot_touching_floor(): 
             for jnt_id in range(self.model.njnt):
                 qpos_adr = self.model.jnt_qposadr[jnt_id]
                 if self.model.jnt_type[jnt_id] == mujoco.mjtJoint.mjJNT_FREE:
@@ -64,11 +78,9 @@ class TactileGymEnv(gym.Env):
 
             self.model.body_pos[body_id][2] += 0.5  # Lift structural Z axis
             
-            mujoco.mj_kinematics(self.model, self.data)
             mujoco.mj_forward(self.model, self.data)
 
-
-        mj_step(self.model, self.data)
+        mujoco.mj_step(self.model, self.data)
         self.step_count += 1
 
         obs = self._get_obs()

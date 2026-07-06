@@ -1,5 +1,4 @@
  <worldbody>
-
             <inertial
             pos="0 0 0"
             mass="0.8"
