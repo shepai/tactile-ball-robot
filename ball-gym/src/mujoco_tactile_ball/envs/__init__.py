@@ -20,3 +20,8 @@ register(
     id="Maze-tactile-ball",
     entry_point="mujoco_tactile_ball.envs.envs:Maze",
 )
+
+register(
+    id="Rig-tactile-ball",
+    entry_point="mujoco_tactile_ball.envs.envs:Rig",
+)
