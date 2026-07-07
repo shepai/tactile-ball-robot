@@ -16,5 +16,13 @@ class Terrain(TactileGymEnv):
             action_dim=3
         )
 
+class Maze(TactileGymEnv):
+    def __init__(self):
+        super().__init__(
+            xml_subpath=["assets", "maze.xml"],
+            obs_dim=9,
+            action_dim=3
+        )
+
 class RandomTerrain(TactileGymEnv):
     pass

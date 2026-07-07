@@ -1,0 +1,44 @@
+<mujoco model="dual_tactile_wheel">
+
+    <option integrator="implicitfast" timestep="0.005"/>
+    <option iterations="40"/>
+    <asset>
+        <include file="robot/left_wheel/asset.xml"/>
+        <texture type="2d" name="groundplane" builtin="checker" rgb1=".2 .3 .4" rgb2=".1 .2 .3" width="512" height="512"/>
+        <material name="grid" texture="groundplane" reflectance=".2" texrepeat="5 5"/>
+    </asset>
+
+    <worldbody>
+        <geom name="floor" type="plane" size="0 0 1" pos="0 0 0" material="grid" condim="3" group="1"/>
+        
+        <camera name="third person" mode="trackcom" target="robot" pos="0.5 0 0.8" fovy="60" euler="0 40 90"/>
+        <body name="robot" pos="0 0 0.15" mocap="true">
+        <geom type="cylinder" size="0.09 0.015" mass="0.8" quat="0 0 -0.7071 0.7071" rgba="0.05 0.05 0.05 1" group="1"/>
+         
+             <inertial pos="0 0 0" mass="0.5" diaginertia="0.002 0.002 0.002"/>
+                    <body name="left_sensor_housing" pos="0 -0.018 0" quat="0 0 -0.7071 0.7071">
+                    <camera name="sensor_cam_left" pos="0 0 -0.002" fovy="120" zaxis="0 0 -1" />
+                    <light name="sensor_light_left" pos="0 0 -0.05" dir="0 0 -1" diffuse="0.8 0.8 0.8" specular="0.2 0.2 0.2" directional="true" />
+                </body>
+    
+                <body name="left_wheel" pos="0 -0.005 0" quat="0 0 -0.7071 0.7071">
+                    <joint name="left_joint" type="hinge" axis="0 0 1" damping="0.1"/>
+                    <inertial pos="0 0 0" mass="0.2" diaginertia="0.001 0.001 0.001"/>
+                    <include file="robot/left_wheel/worldbody.xml"/>
+                </body>
+            </body>
+    </worldbody>
+
+    <tendon>
+        <include file="robot/left_wheel/tendon.xml"/>
+    </tendon>
+    
+    <equality>
+        <include file="robot/left_wheel/equality.xml"/>
+        
+    </equality>
+    <actuator>
+            <motor name="left_motor" joint="left_joint" gear="3"/>
+    </actuator>
+
+</mujoco>
