@@ -48,19 +48,32 @@ class TactileGymEnv(gym.Env):
         self.step_count = 0
         return self._get_obs(), {}
     def is_robot_touching_floor(self):
-        # Get the base robot body ID
+        # 1. Look up the unique ID of the floor geom
+        floor_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_GEOM, "floor")
+        
+        # 2. Get the base robot body ID to match child links
         robot_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "robot")
         
-        # Scan every body in your robot
+        # 3. Create a set of all body IDs that belong to the robot
+        robot_bodies = {robot_id}
         for body_idx in range(self.model.nbody):
-            is_part_of_robot = (body_idx == robot_id) or (self.model.body_parentid[body_idx] == robot_id)
+            if self.model.body_parentid[body_idx] in robot_bodies:
+                robot_bodies.add(body_idx)
+
+        # 4. Scan the active contact buffer populated by MuJoCo's physics engine
+        for i in range(self.data.ncon):
+            contact = self.data.contact[i]
             
-            if is_part_of_robot:
-                part_z = self.data.xpos[body_idx][2]
+            # Find the bodies responsible for the two colliding geoms
+            body1 = self.model.geom_bodyid[contact.geom1]
+            body2 = self.model.geom_bodyid[contact.geom2]
+            
+            # Check if one geom is the floor, and the other belongs to the robot
+            if contact.geom1 == floor_id and body2 in robot_bodies:
+                return True
+            if contact.geom2 == floor_id and body1 in robot_bodies:
+                return True
                 
-                if part_z < 0.1: 
-                    return True
-                    
         return False
     def step(self, action):
         body_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "robot")
