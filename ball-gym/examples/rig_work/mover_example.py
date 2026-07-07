@@ -17,17 +17,10 @@ def main():
     model = env.unwrapped.model
     data = env.unwrapped.data
 
-    # Offscreen renderer configuration
-    width, height = 640, 480
     renderer = env.unwrapped.renderer
 
-    # Define driving speeds
-    BASE_SPEED = 1.5
-    TURN_SPEED = 1.5
-    target_velocities = [0.1,0.1,0.1,np.pi/2,0,0,0]
+    target_velocities = [0.1,0.1,0.1,np.pi/2,0,0,0.1]
 
-    print("Control setup complete. CLICK AND FOCUS THE 'third_person_view' WINDOW TO DRIVE.")
-    
     cam = mujoco.MjvCamera()
     mujoco.mjv_defaultCamera(cam)
     cam.type = mujoco.mjtCamera.mjCAMERA_TRACKING

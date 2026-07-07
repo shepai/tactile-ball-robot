@@ -36,7 +36,7 @@ class Rig(TactileGymEnv):
         )
     def control_robot_speed(self, target_left_w, max_allowed_speed=10.0):
         # 1. Enforce safety speed ceiling
-        max_target = max(abs(target_left_w))
+        max_target = abs(target_left_w)
         if max_target > max_allowed_speed:
             scale_factor = max_allowed_speed / max_target
             target_left_w *= scale_factor
