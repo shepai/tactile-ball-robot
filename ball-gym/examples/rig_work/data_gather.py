@@ -43,8 +43,8 @@ c = 0
 total_samples = (
     len(np.arange(0,0.3,0.1)) *
     6 *
-    len(np.arange(0,0.2,0.01)) *
-    len(np.arange(0,0.2,0.01)) *
+    len(np.arange(0,0.2,0.1)) *
+    len(np.arange(0,0.2,0.1)) *
     len(np.arange(0,0.05,0.001))
 )
 
@@ -55,8 +55,8 @@ with tqdm(total=total_samples, desc="Collecting data") as pbar:
         start[-1] = speed
         for texture_id in range(6):
             env.unwrapped.set_texture(texture_id)
-            for i in np.arange(0,0.2,0.01):
-                for j in np.arange(0,0.2,0.01):
+            for i in np.arange(0,0.2,0.1):
+                for j in np.arange(0,0.2,0.1):
                     for k in np.arange(0,0.05,0.001):
 
                         target = start.copy()
@@ -79,8 +79,11 @@ with tqdm(total=total_samples, desc="Collecting data") as pbar:
                             obs['sensor_cam_left']*255,
                             cv2.COLOR_RGB2BGR
                         ).astype(np.uint8)
-
-                        cv2.imwrite(image_path, left_view)
+                        gray = cv2.cvtColor(
+                            left_view,
+                            cv2.COLOR_BGR2GRAY
+                        )
+                        cv2.imwrite(image_path, gray,[cv2.IMWRITE_PNG_COMPRESSION, 9])
 
 
                         # Get marker positions
