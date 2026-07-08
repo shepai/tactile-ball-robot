@@ -36,7 +36,6 @@ data = env.unwrapped.data
 
 start = [0.3,0.3,0.22,np.pi/2,0,0,0]
 obs, reward, terminated, truncated, info = env.step(start.copy())
-MAX_USAGE_GB = 200
 c = 0
 
 # Calculate total number of samples for progress bar
@@ -136,9 +135,10 @@ with tqdm(total=total_samples, desc="Collecting data") as pbar:
                             "data": f"{folder_size:.2f} GB",
                             "free": f"{free_space:.2f} GB"
                         })
-                        if folder_size >= MAX_USAGE_GB:
+                        if folder_size >= free_space-50-folder_size: #keep 50GB
                             print("Storage limit reached. Stopping collection.")
                             exit()
+                        pbar.update(1)
 
 # Convert to dataframe
 df = pd.DataFrame(recordings)
@@ -146,7 +146,6 @@ df = pd.DataFrame(recordings)
 # Save CSV
 csv_path = os.path.join(
     DATA_SAVE_PATH,
-    "data",
     "recordings.csv"
 )
 
