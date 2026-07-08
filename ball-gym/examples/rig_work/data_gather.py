@@ -125,8 +125,6 @@ with tqdm(total=total_samples, desc="Collecting data") as pbar:
                                 index=False
                             )
 
-                            # Clear memory
-                            recordings = []
 
                         folder_size = get_folder_size(DATA_SAVE_PATH)
                         free_space = get_disk_space(DATA_SAVE_PATH)
