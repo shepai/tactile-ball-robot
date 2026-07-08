@@ -19,7 +19,7 @@ def main():
 
     renderer = env.unwrapped.renderer
 
-    target_velocities = [0.1,0.1,0.1,np.pi/2,0,0,0.1]
+    start = [0.3,0.3,0.22,np.pi/2,0,0,0.1]
 
     cam = mujoco.MjvCamera()
     mujoco.mjv_defaultCamera(cam)
@@ -30,14 +30,15 @@ def main():
     cam.azimuth = 120 
 
     try:
-        obs, reward, terminated, truncated, info = env.step(target_velocities.copy())
-        for i in np.arange(0,0.2,0.001):
-            for j in np.arange(0,0.2,0.001):
+        obs, reward, terminated, truncated, info = env.step(start.copy())
+        for i in np.arange(0,0.2,0.01):
+            for j in np.arange(0,0.2,0.01):
                 for k in np.arange(0,0.05,0.001):
                     # 1. Render and draw scenes regardless of keyboard interactions
-                    target_velocities[0]=i
-                    target_velocities[1]=j
-                    target_velocities[2]=0.1-k
+                    target=start.copy()
+                    target[0]=start[0]+i
+                    target[1]=start[1]+j
+                    target[2]=start[2]-k
                     renderer.update_scene(data, camera=cam)
                     rgb_img = renderer.render()
                     left_view=cv2.cvtColor(obs['sensor_cam_left']*255, cv2.COLOR_RGB2BGR).astype(np.uint8)
@@ -58,7 +59,7 @@ def main():
                 
                     if key == ord('q') or key == 27:
                         break
-                    obs, reward, terminated, truncated, info = env.step(target_velocities.copy())
+                    obs, reward, terminated, truncated, info = env.step(target.copy())
 
     finally:
             cv2.destroyAllWindows()

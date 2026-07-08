@@ -6,11 +6,71 @@
         <include file="robot/left_wheel/asset.xml"/>
         <texture type="2d" name="groundplane" builtin="checker" rgb1=".2 .3 .4" rgb2=".1 .2 .3" width="512" height="512"/>
         <material name="grid" texture="groundplane" reflectance=".2" texrepeat="5 5"/>
+         <mesh name="3d_texture_1" file="objects/z0_surface.stl" scale="0.01 0.01 0.01 "/>
+         <mesh name="3d_texture_2" file="objects/z1_surface.stl" scale="0.01 0.01 0.01 "/>
+         <mesh name="3d_texture_3" file="objects/z2_surface.stl" scale="0.01 0.01 0.01 "/>
+         <mesh name="3d_texture_4" file="objects/z3_surface.stl" scale="0.01 0.01 0.01 "/>
+         <mesh name="3d_texture_5" file="objects/z4_surface.stl" scale="0.01 0.01 0.01 "/>
+         <mesh name="3d_texture_6" file="objects/z5_surface.stl" scale="0.01 0.01 0.01 "/>
     </asset>
 
     <worldbody>
         <geom name="floor" type="plane" size="0 0 1" pos="0 0 0" material="grid" condim="3" group="1"/>
+        <light name="light_left" pos="0 0 5" dir="0 0 -1" diffuse="0.8 0.8 0.8" specular="0.2 0.2 0.2" directional="true"/>
         
+    <body name="texture_1" pos="0.3 0.3 0.1">
+        <geom name="texture_geom_1"
+              type="mesh"
+              mesh="3d_texture_1"
+              density="1000"
+              friction="1 0.005 0.0001"
+              rgba="1 1 1 1"/>
+    </body>
+
+    <body name="texture_2" pos="0.3 0.3 0.1">
+        <geom name="texture_geom_2"
+              type="mesh"
+              mesh="3d_texture_2"
+              density="1000"
+              friction="1 0.005 0.0001"
+              rgba="1 1 1 0"/>
+    </body>
+
+    <body name="texture_3" pos="0.3 0.3 0.1">
+        <geom name="texture_geom_3"
+              type="mesh"
+              mesh="3d_texture_3"
+              density="1000"
+              friction="1 0.005 0.0001"
+              rgba="1 1 1 0"/>
+    </body>
+
+    <body name="texture_4" pos="0.3 0.3 0.1">
+        <geom name="texture_geom_4"
+              type="mesh"
+              mesh="3d_texture_4"
+              density="1000"
+              friction="1 0.005 0.0001"
+              rgba="1 1 1 0"/>
+    </body>
+
+    <body name="texture_5" pos="0.3 0.3 0.1">
+        <geom name="texture_geom_5"
+              type="mesh"
+              mesh="3d_texture_5"
+              density="1000"
+              friction="1 0.005 0.0001"
+              rgba="1 1 1 0"/>
+    </body>
+
+    <body name="texture_6" pos="0.3 0.3 0.1">
+        <geom name="texture_geom_6"
+              type="mesh"
+              mesh="3d_texture_6"
+              density="1000"
+              friction="1 0.005 0.0001"
+              rgba="1 1 1 0"/>
+    </body>
         <camera name="third person" mode="trackcom" target="robot" pos="0.5 0 0.8" fovy="60" euler="0 40 90"/>
         <body name="robot" pos="0 0 0.15" mocap="true">
         <geom type="cylinder" size="0.09 0.015" mass="0.8" quat="0 0 -0.7071 0.7071" rgba="0.05 0.05 0.05 1" group="1"/>

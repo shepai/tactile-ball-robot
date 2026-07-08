@@ -4,7 +4,7 @@ import sys
 
 # Path to your robot XML
 
-XML_PATH = "/home/dexter/Documents/GitHub/tactile-ball-robot/ball-gym/src/mujoco_tactile_ball/assets/flat.xml"
+XML_PATH = "/home/dexter/Documents/GitHub/tactile-ball-robot/ball-gym/src/mujoco_tactile_ball/assets/move.xml"
 if sys.platform.startswith("win"): XML_PATH= "C:/Users/dexte/Documents/GitHub/tactile-ball-robot/ball-gym/src/mujoco_tactile_ball/assets/blocks.xml"
 
 # Load model

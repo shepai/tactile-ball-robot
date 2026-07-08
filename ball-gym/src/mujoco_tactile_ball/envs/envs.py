@@ -34,6 +34,7 @@ class Rig(TactileGymEnv):
             obs_dim=9,
             action_dim=3
         )
+        self.set_texture(1)
     def control_robot_speed(self, target_left_w, max_allowed_speed=10.0):
         # 1. Enforce safety speed ceiling
         max_target = abs(target_left_w)
@@ -74,6 +75,40 @@ class Rig(TactileGymEnv):
         truncated = self.step_count >= self.max_steps
 
         return obs, reward, terminated, truncated, {}
+    def set_texture(self,texture_id):
+        texture_geoms = [
+            "texture_geom_1",
+            "texture_geom_2",
+            "texture_geom_3",
+            "texture_geom_4",
+            "texture_geom_5",
+            "texture_geom_6",
+        ]
+        for i, name in enumerate(texture_geoms):
+            geom_id = mujoco.mj_name2id(
+                self.model,
+                mujoco.mjtObj.mjOBJ_GEOM,
+                name
+            )
 
+            if i == texture_id:
+                # visible + collidable
+                self.model.geom_rgba[geom_id][3] = 1.0
+                self.model.geom_contype[geom_id] = 1
+                self.model.geom_conaffinity[geom_id] = 1
+
+            else:
+                # invisible + no collision
+                self.model.geom_rgba[geom_id][3] = 0.0
+                self.model.geom_contype[geom_id] = 0
+                self.model.geom_conaffinity[geom_id] = 0
+    def get_markers(self):
+        marker_geoms = []
+        for i in range(self.model.ngeom):
+            name = mujoco.mj_id2name(self.model, mujoco.mjtObj.mjOBJ_GEOM, i)
+            
+            if name is not None and "marker" in name.lower():
+                marker_geoms.append(self.data.geom_xpos[i].copy())
+        return marker_geoms
 class RandomTerrain(TactileGymEnv):
     pass
