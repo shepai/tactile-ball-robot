@@ -42,9 +42,9 @@ c = 0
 total_samples = (
     len(np.arange(0,0.3,0.1)) *
     6 *
-    len(np.arange(0,0.2,0.1)) *
-    len(np.arange(0,0.2,0.1)) *
-    len(np.arange(0,0.05,0.001)) *
+    len(np.arange(0,0.2,0.2)) *
+    len(np.arange(0,0.2,0.2)) *
+    len(np.arange(0,0.05,0.01)) *
     len(np.arange(-np.pi/2,np.pi/2,(np.pi)/5)) * 
     len(np.arange(-np.pi/2,np.pi/2,(np.pi)/5)) * 
     len(np.arange(-np.pi/2,np.pi/2,(np.pi)/5)) 
@@ -57,12 +57,12 @@ with tqdm(total=total_samples, desc="Collecting data") as pbar:
         start[-1] = speed
         for texture_id in range(6):
             env.unwrapped.set_texture(texture_id)
-            for i in np.arange(0,0.2,0.1):
-                for j in np.arange(0,0.2,0.1):
+            for i in np.arange(0,0.2,0.2):
+                for j in np.arange(0,0.2,0.2):
                     for thetx in np.arange(-np.pi/2,np.pi/2,(np.pi)/5):
                         for thety in np.arange(-np.pi/2,np.pi/2,(np.pi)/5):
                             for thetz in np.arange(-np.pi/2,np.pi/2,(np.pi)/5):
-                                for k in np.arange(0,0.05,0.001):
+                                for k in np.arange(0,0.05,0.01):
                                     target = start.copy()
                                     target[0] = start[0] + i
                                     target[1] = start[1] + j
