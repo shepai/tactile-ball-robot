@@ -1,6 +1,6 @@
 <mujoco model="dual_tactile_wheel">
 
-    <option integrator="implicitfast" timestep="0.01"/>
+    <option integrator="implicitfast" timestep="0.005"/>
     <option iterations="40"/>
     <asset>
         <include file="robot/asset.xml"/>

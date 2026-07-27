@@ -100,7 +100,7 @@ def generate_xml(name,points, num,stiff=300,damp=20):
             <joint type="slide" axis="0 1 0" name="j_c{i}_y_{name}" stiffness="{stiff}" damping="{damp}"/>
             <joint type="slide" axis="0 0 1" name="j_c{i}_z_{name}" stiffness="{stiff}" damping="{damp}"/>
             <geom type="sphere" size="0.004" rgba="1 1 1 0" mass="0.01" condim="3" contype="1" conaffinity="1"/>
-            <geom pos="{inner_pos[0]} {inner_pos[1]} {inner_pos[2]}" type="sphere" size="0.002" rgba="1 1 1 1" 
+            <geom name= "marker_{i}_{name}" pos="{inner_pos[0]} {inner_pos[1]} {inner_pos[2]}" type="sphere" size="0.002" rgba="1 1 1 1" 
             
                 group="2" 
                 contype="0" 
@@ -240,8 +240,8 @@ def generate_body():
     if sys.platform.startswith("win"): PATH="C:/Users/dexte/Documents/GitHub/tactile-ball-robot/ball-gym/src/mujoco_tactile_ball/assets/robot/"
     points,layers=generate_dome(R=1.0, n_layers=16, n_total=150,
                   tip_layer_density=2.0, min_pts=6,remove_bottom_layers=0)
-    left_xml=generate_xml("leftwheel",points,layers,stiff=80,damp=10)
-    right_xml=generate_xml("rightwheel",points,layers,stiff=80,damp=10)
+    left_xml=generate_xml("leftwheel",points,layers,stiff=120,damp=20)
+    right_xml=generate_xml("rightwheel",points,layers,stiff=120,damp=20)
     with open(PATH+"left_wheel/generated.xml","w") as file:
         file.write(left_xml)
     with open(PATH+"right_wheel/generated.xml","w") as file:

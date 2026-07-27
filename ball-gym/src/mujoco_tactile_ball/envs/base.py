@@ -48,19 +48,32 @@ class TactileGymEnv(gym.Env):
         self.step_count = 0
         return self._get_obs(), {}
     def is_robot_touching_floor(self):
-        # Get the base robot body ID
+        # 1. Look up the unique ID of the floor geom
+        floor_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_GEOM, "floor")
+        
+        # 2. Get the base robot body ID to match child links
         robot_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "robot")
         
-        # Scan every body in your robot
+        # 3. Create a set of all body IDs that belong to the robot
+        robot_bodies = {robot_id}
         for body_idx in range(self.model.nbody):
-            is_part_of_robot = (body_idx == robot_id) or (self.model.body_parentid[body_idx] == robot_id)
+            if self.model.body_parentid[body_idx] in robot_bodies:
+                robot_bodies.add(body_idx)
+
+        # 4. Scan the active contact buffer populated by MuJoCo's physics engine
+        for i in range(self.data.ncon):
+            contact = self.data.contact[i]
             
-            if is_part_of_robot:
-                part_z = self.data.xpos[body_idx][2]
+            # Find the bodies responsible for the two colliding geoms
+            body1 = self.model.geom_bodyid[contact.geom1]
+            body2 = self.model.geom_bodyid[contact.geom2]
+            
+            # Check if one geom is the floor, and the other belongs to the robot
+            if contact.geom1 == floor_id and body2 in robot_bodies:
+                return True
+            if contact.geom2 == floor_id and body1 in robot_bodies:
+                return True
                 
-                if part_z < 0.1: 
-                    return True
-                    
         return False
     def step(self, action):
         body_id = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_BODY, "robot")
@@ -90,31 +103,45 @@ class TactileGymEnv(gym.Env):
 
         return obs, reward, terminated, truncated, {}
     def set_visibility(self, visible_ids):
-        for i in range(self.model.ngeom):
-            self.model.geom_rgba[i][3] = 0.0
-        for i in visible_ids:
-            self.model.geom_rgba[i][3] = 1.0
+        opt = self.renderer._scene_option
+        for i in range(mujoco.mjNGROUP):
+            if i in visible_ids:
+                opt.geomgroup[i] = 1  # 1 means visible
+                opt.sitegroup[i] = 1
+                opt.jointgroup[i] = 1
+                opt.tendongroup[i] = 1
+                opt.actuatorgroup[i] = 1
+            else:
+                opt.geomgroup[i] = 0  # 0 means hidden
+                opt.sitegroup[i] = 0
+                opt.jointgroup[i] = 0
+                opt.tendongroup[i] = 0
+                opt.actuatorgroup[i] = 0
+        self.renderer.scene.flags[mujoco.mjtRndFlag.mjRND_SKYBOX] = 0
+        return opt
     def _get_obs(self):
-        self.renderer.update_scene(self.data, camera="front_cam")
+        mujoco.mj_forward(self.model, self.data)
+        opt_front=self.set_visibility([0, 1, 2])
+        self.renderer.scene.flags[mujoco.mjtRndFlag.mjRND_SKYBOX] = 1
+        self.renderer.update_scene(self.data, camera="front_cam", scene_option=opt_front)
         img = self.renderer.render()
         img = img.astype("float32") / 255.0
-        all_geom_ids = np.arange(self.model.ngeom)
-        self.model.tendon_rgba[:, 3] = 0.0
-        self.set_visibility([])
-        self.renderer.update_scene(self.data, camera="sensor_cam_left")
+        opt_front=self.set_visibility([2])
+        self.renderer.update_scene(self.data, camera="sensor_cam_left", scene_option=opt_front)
         Limg = self.renderer.render()
         Limg = Limg.astype("float32") / 255.0
-        self.renderer.update_scene(self.data, camera="sensor_cam_right")
+        self.renderer.update_scene(self.data, camera="sensor_cam_right", scene_option=opt_front)
         Rimg = self.renderer.render()
         Rimg = Rimg.astype("float32") / 255.0
+        self.set_visibility([0, 1, 2])
+        #self.model.tendon_rgba[:, 3] = 1.0
+        self.renderer.scene.flags[mujoco.mjtRndFlag.mjRND_SKYBOX] = 1
         obs = {
         "state": None,
         "sensor_cam_left": Limg,
         "sensor_cam_right": Rimg,
         "front_cam": img,
     }
-        self.set_visibility(all_geom_ids)
-        self.model.tendon_rgba[:, 3] = 1
         return obs
 
     def _reward(self):

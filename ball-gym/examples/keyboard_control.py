@@ -4,10 +4,10 @@ import mujoco_tactile_ball
 
 import mujoco
 import cv2
-
+import numpy as np
 
 def main():
-    env = gym.make("Flat-tactile-ball")
+    env = gym.make("Maze-tactile-ball")
     obs, info = env.reset()
 
     model = env.unwrapped.model
@@ -33,15 +33,23 @@ def main():
     last_time = time.perf_counter()
     recording=False
     video=False
+    cam = mujoco.MjvCamera()
+    mujoco.mjv_defaultCamera(cam)
+    cam.type = mujoco.mjtCamera.mjCAMERA_TRACKING
+    cam.trackbodyid = model.body('robot').id  # Locks onto your robot ID
+    cam.distance = 1.5                         # Distance from the robot (meters)
+    cam.elevation = -20                        # Vertical angle look-down
+    cam.azimuth = 120 
+
     try:
         obs, reward, terminated, truncated, info = env.step(target_velocities)
         while True:
             # 1. Render and draw scenes regardless of keyboard interactions
-            renderer.update_scene(data, camera="third person")
+            renderer.update_scene(data, camera=cam)
             rgb_img = renderer.render()
-            robo_view=cv2.cvtColor(obs['front_cam']*255, cv2.COLOR_RGB2BGR)
-            left_view=cv2.cvtColor(obs['sensor_cam_left']*255, cv2.COLOR_RGB2BGR)
-            right_view=cv2.cvtColor(obs['sensor_cam_right']*255, cv2.COLOR_RGB2BGR)
+            robo_view=cv2.cvtColor(obs['front_cam']*255, cv2.COLOR_RGB2BGR).astype(np.uint8)
+            left_view=cv2.cvtColor(obs['sensor_cam_left']*255, cv2.COLOR_RGB2BGR).astype(np.uint8)
+            right_view=cv2.cvtColor(obs['sensor_cam_right']*255, cv2.COLOR_RGB2BGR).astype(np.uint8)
             h, w = 100, 120
             robo_view = cv2.resize(robo_view, (w, h), interpolation=cv2.INTER_AREA)
             left_view = cv2.resize(left_view, (w, h), interpolation=cv2.INTER_AREA)

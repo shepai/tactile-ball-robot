@@ -37,13 +37,13 @@
             <!-- STABLE HOUSINGS: These hold the cameras and lights so they do NOT rotate -->
             <!-- ======================================================================= -->
             <body name="left_sensor_housing" pos="0 -0.018 0" quat="0 0 -0.7071 0.7071">
-                <camera name="sensor_cam_left" pos="0 0 -0.002" fovy="120" zaxis="0 0 -1" />
-                <light name="sensor_light_left" pos="0 0 -0.05" dir="0 0 -1" diffuse="0.8 0.8 0.8" specular="0.2 0.2 0.2" directional="true" />
+                <camera name="sensor_cam_left" pos="0 0 0.01" fovy="120" zaxis="0 0 -1" />
+                <!-- <light name="sensor_light_left" pos="0 0 -0.002" dir="0 0 -1" diffuse="0.8 0.8 0.8" specular="0.2 0.2 0.2" directional="true" /> -->
             </body>
 
             <body name="right_sensor_housing" pos="0 0.018 0" quat="0 0 0.7071 0.7071">
-                <camera name="sensor_cam_right" pos="0 0 -0.002" fovy="120" zaxis="0 0 -1" />
-                <light name="sensor_light_right" pos="0 0 -0.05" dir="0 0 -1" diffuse="0.8 0.8 0.8" specular="0.2 0.2 0.2" directional="true" />
+                <camera name="sensor_cam_right" pos="0 0 0.01" fovy="120" zaxis="0 0 -1" />
+                <!-- <light name="sensor_light_right" pos="0 0 -0.002" dir="0 0 -1" diffuse="0.8 0.8 0.8" specular="0.2 0.2 0.2" directional="true" /> -->
             </body>
 
             <!-- ======================================================================= -->
