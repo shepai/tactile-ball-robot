@@ -660,13 +660,18 @@
       {
         "filename": "Camera.kicad_sch",
         "name": "Camera",
-        "uuid": "00000000-0000-0000-0000-000000000000"
+        "uuid": "007bc3a2-6c09-4fb6-b70f-e000745c0b40"
       }
     ],
-    "used_designators": "",
+    "used_designators": "SW1-2,R4-14,J1,D4,D6,C1-9,#PWR7,#PWR101-118,#FLG101",
     "variants": []
   },
-  "sheets": [],
+  "sheets": [
+    [
+      "007bc3a2-6c09-4fb6-b70f-e000745c0b40",
+      "Camera"
+    ]
+  ],
   "text_variables": {},
   "tuning_profiles": {
     "meta": {
