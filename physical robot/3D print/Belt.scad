@@ -2,12 +2,12 @@
 belt_teeth   = 350;    // number of teeth = belt length / 5 mm (CHANGE ME)
 belt_pitch   = 5;      // T5
 belt_w       = 10;     // belt width (print height)
-back_t       = 1.0;    // thickness of the flat backing
+back_t       = 2.0;    // thickness of the flat backing
 tooth_h      = 1.2;    // T5 tooth height (total belt thickness = 2.2)
 tooth_w_base = 2.4;    // tooth width at the root (groove on gear is 2.6)
 tooth_w_tip  = 1.7;    // tooth width at the tip
 
-gap          = 0.8;    // clearance between neighbouring turns of the spiral
+gap          = 2.5;    // clearance between neighbouring turns of the spiral
 r0           = 45;     // radius where the spiral starts (inner surface of backing)
 
 sub          = 10;     // sample points per tooth pitch (smoothness of the curve)
