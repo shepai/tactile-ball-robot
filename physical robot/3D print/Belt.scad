@@ -1,8 +1,10 @@
 // ---------- Parameters ----------
-belt_teeth   = 350;    // number of teeth = belt length / 5 mm (CHANGE ME)
+belt_teeth   = 550;    // number of teeth = belt length / 5 mm (CHANGE ME)
 belt_pitch   = 5;      // T5
-belt_w       = 10;     // belt width (print height)
-back_t       = 2.0;    // thickness of the flat backing
+belt_w       = 7;      // belt width (print height)
+back_t       = 2.0;    // thickness of the flat backing (thick sections)
+thin_t       = 0.9;    // thickness of the backing (thin sections)
+seg_len      = 20;     // length of each thick/thin section along the belt (mm)
 tooth_h      = 1.2;    // T5 tooth height (total belt thickness = 2.2)
 tooth_w_base = 2.4;    // tooth width at the root (groove on gear is 2.6)
 tooth_w_tip  = 1.7;    // tooth width at the tip
@@ -25,6 +27,9 @@ function nxt(t)      = t + ds / sqrt(pow(rad_at(t), 2) + a * a);
 function walk(n, t = 0, acc = []) =
     n < 0 ? acc : walk(n - 1, nxt(t), concat(acc, [t]));
 
+// backing thickness at sample index i (arc length = i * ds)
+function back_at(i) = (floor(i * ds / seg_len) % 2 == 0) ? back_t : thin_t;
+
 ts = walk(N);                                            // angle at each sample point
 
 echo(str("Belt length: ", belt_teeth * belt_pitch, " mm"));
@@ -34,7 +39,7 @@ echo(str("Turns: ", ts[N] / (2 * PI)));
 // ---------- 2D shapes ----------
 module back2d() {
     polygon(concat(
-        [for (t = ts) pt(rad_at(t) + back_t, t)],
+        [for (i = [0 : len(ts) - 1]) pt(rad_at(ts[i]) + back_at(i), ts[i])],
         [for (i = [len(ts) - 1 : -1 : 0]) pt(rad_at(ts[i]), ts[i])]
     ));
 }
