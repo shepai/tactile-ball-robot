@@ -13,7 +13,7 @@ rim_radial    = 6;      // radial thickness of rim
 gear_h        = 10;     // toothed section standing up above the wheel
 
 step_drop     = 5;      // inner part of the raised section sits this much lower than the teeth
-step_split    = 0.5;    // 0.5 = inner half (radially) is lowered
+step_split    = 0.6;    // 0.5 = inner half (radially) is lowered
 
 screw_r       = 2.5;    // radial screw hole radius
 screw_depth   = 12;     // how far holes go inwards from the edge
