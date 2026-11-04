@@ -5,7 +5,8 @@
 //  in print orientation.
 //    mold_bottom  PLA/PETG  bowl on a flat base - no seams below the pour
 //    mold_top     PLA/PETG  lid: pour funnels, core seat, tongue seal
-//    core         PVA       makes the hollow; dissolves out afterwards
+//    core         PVA       hollow shell that forms the inside of the ball;
+//                           dissolves out afterwards
 //    clip         PLA       holds the core up while you pour
 //    ball         preview of the finished silicone part
 //    assembly / section     views only
@@ -25,10 +26,12 @@
 //     while you demold, then dissolves.
 //
 //  Print: halves 4 walls, 5 top/bottom layers, 15% infill (walls stop
-//  seepage). Core in PVA: the slicer makes it a hollow shell, so slice
-//  it with 4 walls, 8 top / 5 bottom layers and 5% gyroid (~180 g;
-//  100% infill would be ~1.4 kg). Tree supports (marks end up inside
-//  the ball). Hardware: 8x M5x30 bolts + nuts.
+//  seepage). Core in PVA: it is modelled hollow - a 3 mm shell with a
+//  central pillar holding up a pointed 45 degree roof, so the inside
+//  needs no supports. Slice with 3 walls and 15% infill (~170 g; infill
+//  only goes into the thick roof). Tree supports set to "build plate
+//  only", so none get put inside the hollow (outside support marks end
+//  up inside the ball). Hardware: 8x M5x30 bolts + nuts.
 //
 //  Use
 //   1. Wipe release (or a thin film of petroleum jelly) on the cavity
@@ -41,8 +44,9 @@
 //   5. After cure: clip off, unbolt, lever the lid off at the pry slots,
 //      lift the ball out with the core still inside.
 //   6. Cut the neck off flush, pull out the thin silicone vent string,
-//      poke a skewer down the hole to break into the water channel,
-//      then soak in warm water (squeeze it, change the water) until the
+//      poke a skewer down the hole to break into the water channel
+//      (it runs down the pillar into the hollow), then soak in warm
+//      water, opening up, changing the water now and then, until the
 //      PVA has gone. Snip the four small vent nubs inside the opening.
 //
 //  Silicone needed with the defaults: about 600 ml (~650 g). Pick a
@@ -95,6 +99,10 @@ vent_d      = 2.5; // cross vents through the stalk
 vent_bore_d = 3;   // carries vent air up the neck
 bore_d      = 8;   // water channel inside the core (dissolves faster)
 core_flat_d = 20;  // flat on core bottom for bed contact (0 = none)
+hollow      = true; // model the core as a hollow shell
+core_shell  = 10;   // shell thickness of the hollow core
+pillar_d    = 14;  // central column holding up the roof of the hollow
+window_d    = 4;   // holes from the water channel into the hollow
 
 /* [Quality] */
 $fn = 96;
@@ -123,8 +131,22 @@ z_flat      = core_flat_d > 0
               ? -sqrt(core_r * core_r - core_flat_d * core_flat_d / 4)
               : -core_r - 1;
 big         = 4 * (ball_r + 50);
+// hollow core: ring-shaped pointed roof with 45 degree faces, held up by
+// the central pillar, so the inside prints without supports
+r_in        = core_r - core_shell;
+pillar_r    = pillar_d / 2;
+ridge_lat   = 63;                       // ridge position, near the lightest roof
+ridge_x     = r_in * cos(ridge_lat);
+ridge_z     = r_in * sin(ridge_lat);
+z_floor     = max(z_flat, -core_r) + core_shell;
+z_join      = ridge_z - ridge_x + pillar_r;      // roof meets the pillar
+z_window    = z_join - window_d / 2 - 1.5;
+z_bore_top  = z_vent - vent_d / 2 - 2.5;
+z_bore_bot  = hollow ? z_window - window_d / 2 - 1 : z_flat + 8;
 
 assert(neck_d < opening_d, "neck_d must be smaller than opening_d");
+assert(!hollow || pillar_d >= bore_d + 4, "pillar_d must be at least bore_d + 4");
+assert(!hollow || z_window - window_d / 2 > z_floor + 3, "hollow too small: reduce core_shell or pillar_d");
 assert(tread_depth < wall, "tread_depth must be less than wall");
 assert(clip_groove_r > vent_bore_d / 2 + 1, "neck_d too small for the vent bore");
 assert(inlet_r + inlet_d / 2 < ball_r - 5, "inlets don't fit: raise inlet_lat or shrink inlet_d");
@@ -199,18 +221,37 @@ module core_shape() {
     stalk();
 }
 
+// the empty space inside the core (a ring around the pillar)
+module hollow_space() {
+    L = 2 * core_r;
+    rotate_extrude()
+        intersection() {
+            circle(r = r_in);
+            translate([pillar_r, z_floor]) square([L, 2 * L]);
+            polygon([[0, ridge_z - ridge_x], [ridge_x, ridge_z],
+                     [ridge_x + ridge_z + L, -L], [0, -L]]);
+        }
+}
+
 module core() {
     difference() {
         core_shape();
+        if (hollow) {
+            hollow_space();
+            for (a = [0, 90])                  // windows into the hollow
+                translate([0, 0, z_window]) rotate([90, 0, a])
+                    cylinder(d = window_d, h = pillar_d + 2, center = true);
+        }
         // air vents just under the top of the cavity, then up the neck
         for (a = [0, 90])
             translate([0, 0, z_vent]) rotate([90, 0, a])
                 cylinder(d = vent_d, h = 2 * open_r + 2, center = true);
         translate([0, 0, z_vent - vent_d / 2])
             cylinder(d = vent_bore_d, h = big);
-        // water channel, sealed by a thin skin until you poke through
-        translate([0, 0, z_flat + 8])
-            cylinder(d = bore_d, h = (z_vent - vent_d / 2 - 2.5) - (z_flat + 8));
+        // water channel down the pillar, sealed by a thin skin at the top
+        // until you poke through
+        translate([0, 0, z_bore_bot])
+            cylinder(d = bore_d, h = z_bore_top - z_bore_bot);
         // groove for the clip
         translate([0, 0, z_top - 1])
             difference() {
