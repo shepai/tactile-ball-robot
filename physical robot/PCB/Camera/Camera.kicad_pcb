@@ -69717,6 +69717,14 @@
 		(uuid "0378ed98-da61-476f-98b5-e46b009924c7")
 	)
 	(via
+		(at 138.8261 121.2836)
+		(size 0.6)
+		(drill 0.3)
+		(layers "F.Cu" "B.Cu")
+		(net "/VDD33")
+		(uuid "18a96c2d-a389-466c-aab5-1d6dceda0a00")
+	)
+	(via
 		(at 139.1961 116.8586)
 		(size 0.6)
 		(drill 0.3)
@@ -69819,6 +69827,14 @@
 		(layer "B.Cu")
 		(net "/VDD33")
 		(uuid "1269688a-8ce0-4da7-b75d-29b66bb6ca03")
+	)
+	(segment
+		(start 138.8261 121.2836)
+		(end 138.8261 121.1036)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "/VDD33")
+		(uuid "249f94ae-2c76-4055-b434-10ca714502c5")
 	)
 	(segment
 		(start 159.5211 128.5836)
@@ -70006,7 +70022,7 @@
 	)
 	(segment
 		(start 138.8261 121.8336)
-		(end 138.8261 121.1036)
+		(end 138.8261 121.2836)
 		(width 0.2)
 		(layer "B.Cu")
 		(net "/VDD33")
